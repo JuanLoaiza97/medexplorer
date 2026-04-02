@@ -1,0 +1,94 @@
+<div class="register-container">
+
+  <div class="card">
+
+    <!-- HEADER -->
+    <h2>Crear cuenta</h2>
+
+    <!-- STEPS -->
+    <div class="steps">
+      <span [class.active]="step === 1">Cuenta</span>
+      <span [class.active]="step === 2">Perfil</span>
+      <span [class.active]="step === 3">Intereses</span>
+    </div>
+
+    <!-- PASO 1 -->
+    <div *ngIf="step === 1">
+
+      <input placeholder="Nombre completo" [(ngModel)]="user.name" />
+      <input placeholder="Email" [(ngModel)]="user.email" />
+      <input type="password" placeholder="Contraseña" [(ngModel)]="user.password" />
+      <input type="password" placeholder="Confirmar contraseña" [(ngModel)]="user.confirmPassword" />
+
+    </div>
+
+    <!-- PASO 2 -->
+    <div *ngIf="step === 2">
+
+      <input placeholder="Teléfono" [(ngModel)]="user.phone" />
+      <input placeholder="País" [(ngModel)]="user.country" />
+
+      <select [(ngModel)]="user.userType">
+        <option value="">Tipo de usuario</option>
+        <option value="turista">Turista</option>
+        <option value="local">Local</option>
+      </select>
+
+      <label class="checkbox">
+        <input type="checkbox" [(ngModel)]="user.disability" />
+        ¿Posee alguna limitación física?
+      </label>
+
+      <input type="date" [(ngModel)]="user.birthDate" />
+
+      <select [(ngModel)]="user.gender">
+        <option value="">Género</option>
+        <option>Masculino</option>
+        <option>Femenino</option>
+        <option>Otro</option>
+      </select>
+
+    </div>
+
+    <!-- PASO 3 -->
+    <div *ngIf="step === 3">
+
+      <p class="label">Selecciona tus intereses</p>
+
+      <div class="tags">
+        <span
+          *ngFor="let i of interestsList"
+          (click)="toggleInterest(i)"
+          [class.active]="user.interests.includes(i)"
+        >
+          {{ i }}
+        </span>
+      </div>
+
+      <label class="checkbox">
+        <input type="checkbox" [(ngModel)]="user.terms" />
+        Acepto términos y condiciones
+      </label>
+
+    </div>
+
+    <!-- BOTONES -->
+    <div class="actions">
+
+      <button *ngIf="step > 1" (click)="prev()" class="secondary">
+        Atrás
+      </button>
+
+      <button *ngIf="step < 3" (click)="next()">
+        Siguiente
+      </button>
+
+      <button *ngIf="step === 3" (click)="register()">
+        Registrarse
+      </button>
+
+    </div>
+
+  </div>
+
+</div>

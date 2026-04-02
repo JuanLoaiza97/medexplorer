@@ -1,0 +1,30 @@
+<div class="login-container">
+
+  <div class="login-card">
+
+    <h2>Bienvenido a MedExplorer</h2>
+    <p>Inicia sesión para explorar Medellín</p>
+
+    <form (ngSubmit)="login()">
+
+      <div class="input-group">
+        <label>Email</label>
+        <input type="email" [(ngModel)]="email" name="email" required />
+      </div>
+
+      <div class="input-group">
+        <label>Contraseña</label>
+        <input type="password" [(ngModel)]="password" name="password" required />
+      </div>
+
+      <button type="submit">Iniciar sesión</button>
+
+    </form>
+
+    <span class="extra">
+      ¿No tienes cuenta? <b routerLink="/register">Regístrate</b>
+    </span>
+
+  </div>
+
+</div>

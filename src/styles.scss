@@ -1,1 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+/* RESET GLOBAL 🔥 */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Inter', sans-serif;
+  background-color: #0f172a; // opcional (fondo oscuro elegante)
+}
+
+/* Opcional: suavizar todo */
+* {
+  box-sizing: border-box;
+}
+
+

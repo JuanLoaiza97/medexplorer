@@ -1,0 +1,22 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.main-content {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+.map-container {
+  flex: 3;
+}
+
+.panel-container {
+  flex: 1;
+  background: #ffffff;
+  border-left: 1px solid #eee;
+  overflow-y: auto;
+}

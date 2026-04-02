@@ -1,0 +1,32 @@
+.footer {
+  background: #ffffff;
+  border-top: 1px solid #e5e7eb;
+
+  padding: 15px 40px;
+  margin-top: auto;
+}
+
+/* CONTENIDO */
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  font-size: 13px;
+  color: #6b7280;
+}
+
+/* LINKS */
+.links {
+  display: flex;
+  gap: 20px;
+
+  span {
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  span:hover {
+    color: #22c55e;
+  }
+}
