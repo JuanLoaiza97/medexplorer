@@ -1,15 +1,46 @@
-<div class="panel">
-  <img src="assets/demo.jpg" alt="Lugar" />
+<div class="panel" *ngIf="place">
 
-  <h2>Nombre del lugar</h2>
-  <p>📍 Medellín</p>
+  <!-- IMAGEN -->
+  <div class="image-container">
+    <img [src]="place.image" alt="Lugar" />
 
-  <p class="description">
-    Descripción breve del sitio turístico seleccionado.
-  </p>
+    <!-- BOTÓN FAVORITO -->
+    <button class="favorite" (click)="toggleFavorite()">
+      ❤️
+    </button>
+  </div>
 
-  <div class="buttons">
-    <button>Conoce más</button>
-    <button class="fav">❤️ Favorito</button>
+  <!-- INFO -->
+  <div class="content">
+
+    <h2>{{ place.name }}</h2>
+    <p class="location">📍 {{ place.location }}</p>
+
+    <!-- RATING -->
+    <div class="rating">
+      <span *ngFor="let star of stars">⭐</span>
+      <span class="score">{{ place.rating }}</span>
+    </div>
+
+    <!-- DESCRIPCIÓN -->
+    <p class="description">
+      {{ place.description }}
+    </p>
+
+    <!-- BOTONES -->
+    <div class="buttons">
+      <button class="primary">Conoce más</button>
+    </div>
+
+    <!-- COMENTARIOS -->
+    <div class="comments">
+      <h3>Comentarios</h3>
+
+      <div class="comment" *ngFor="let c of place.comments">
+        <p class="user">{{ c.user }}</p>
+        <p class="text">{{ c.text }}</p>
+      </div>
+    </div>
+
   </div>
 </div>

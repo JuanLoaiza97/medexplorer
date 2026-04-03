@@ -19,6 +19,7 @@ import { MapComponent } from '../../features/map/map/map';
 import { PlacePanelComponent } from '../../features/places/place-panel/place-panel';
 import { FiltersComponent } from '../../features/places/filters/filters';
 
+
 @Component({
   selector: 'app-home',
   standalone: true,
