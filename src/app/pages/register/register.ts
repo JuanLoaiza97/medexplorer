@@ -34,8 +34,7 @@ export class RegisterComponent {
     'Cultura',
     'Gastronomía',
     'Deporte',
-    'Gratis',
-    'Eventos'
+    'Gratis'
   ];
 
   next() {

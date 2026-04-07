@@ -1,125 +1,133 @@
 .panel {
-  width: 350px;
-  height: 100vh;
+  width: 360px;
+  height: 100%;
   background: #ffffff;
-
+  box-shadow: -6px 0 25px rgba(0, 0, 0, 0.08);
   display: flex;
   flex-direction: column;
+  overflow: hidden;
+  border-left: 1px solid #e2e8f0;
 
-  border-left: 1px solid #e5e7eb;
-  box-shadow: -5px 0 20px rgba(0,0,0,0.05);
-
-  overflow-y: auto;
+  // ✨ animación entrada
+  animation: slideIn 0.3s ease;
 }
 
-/* IMAGEN */
-.image-container {
-  position: relative;
-
-  img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-  }
+/* 🖼️ Imagen */
+.panel img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
 }
 
-/* FAVORITO */
-.favorite {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-
-  background: white;
-  border: none;
-  border-radius: 50%;
-  padding: 8px;
-
-  cursor: pointer;
-  font-size: 16px;
-
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  transition: 0.2s;
-}
-
-.favorite:hover {
-  transform: scale(1.1);
-}
-
-/* CONTENIDO */
+/* 📦 Contenido */
 .content {
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
+/* 🏷️ Título */
 h2 {
-  margin-bottom: 5px;
+  margin: 0;
+  font-size: 22px;
+  font-weight: 600;
+  color: #0f172a;
 }
 
+/* 📍 Ubicación */
 .location {
-  color: #6b7280;
-  font-size: 13px;
-  margin-bottom: 10px;
+  color: #64748b;
+  font-size: 14px;
 }
 
-/* RATING */
+/* ⭐ Rating */
 .rating {
   display: flex;
   align-items: center;
-  gap: 5px;
-
-  margin-bottom: 10px;
-
-  .score {
-    font-weight: 600;
-    margin-left: 5px;
-  }
+  gap: 4px;
 }
 
-/* DESCRIPCIÓN */
+.rating i {
+  font-style: normal;
+  font-size: 16px;
+  color: #e2e8f0;
+  transition: 0.2s;
+}
+
+.rating i.filled {
+  color: #facc15;
+}
+
+.score {
+  margin-left: 6px;
+  font-weight: 600;
+  color: #334155;
+}
+
+/* 📝 Descripción */
 .description {
   font-size: 14px;
-  color: #374151;
-  margin-bottom: 15px;
+  color: #475569;
+  line-height: 1.5;
 }
 
-/* BOTONES */
+/* 🔘 Botones */
 .buttons {
-  margin-bottom: 20px;
+  display: flex;
+  gap: 10px;
+  margin-top: auto;
 }
 
-.primary {
-  width: 100%;
+/* 🎯 Botón base */
+button {
+  flex: 1;
   padding: 10px;
-
-  background: #22c55e;
-  color: white;
-
+  border-radius: 10px;
   border: none;
-  border-radius: 10px;
-
   cursor: pointer;
-  font-weight: 600;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
 }
 
-/* COMENTARIOS */
-.comments {
-  h3 {
-    margin-bottom: 10px;
-  }
+/* 🚀 Botón principal */
+.primary {
+  background: #0ea5a4; // 🔥 color turístico moderno (teal)
+  color: white;
 }
 
-.comment {
-  background: #f9fafb;
-  padding: 10px;
-  border-radius: 10px;
-  margin-bottom: 10px;
+.primary:hover {
+  background: #0891b2;
+  transform: translateY(-1px);
+}
 
-  .user {
-    font-weight: 600;
-    font-size: 13px;
+/* ❤️ Favorito */
+.fav {
+  background: #f1f5f9;
+  color: #0f172a;
+}
+
+.fav:hover {
+  background: #e2e8f0;
+}
+
+/* 📭 Estado vacío */
+.empty {
+  padding: 40px 20px;
+  text-align: center;
+  color: #94a3b8;
+  font-size: 14px;
+}
+
+/* ✨ Animación */
+@keyframes slideIn {
+  from {
+    transform: translateX(40px);
+    opacity: 0;
   }
-
-  .text {
-    font-size: 13px;
-    color: #4b5563;
+  to {
+    transform: translateX(0);
+    opacity: 1;
   }
 }

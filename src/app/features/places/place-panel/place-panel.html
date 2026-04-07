@@ -1,46 +1,27 @@
-<div class="panel" *ngIf="place">
+<div class="panel" *ngIf="place$ | async as place">
+  <img [src]="place.image" alt="Lugar" />
 
-  <!-- IMAGEN -->
-  <div class="image-container">
-    <img [src]="place.image" alt="Lugar" />
+  <div class="content">
 
-    <!-- BOTÓN FAVORITO -->
-    <button class="favorite" (click)="toggleFavorite()">
-      ❤️
+  <h2>{{ place.name }}</h2>
+  <p>📍 {{ place.location }}</p>
+
+  <div class="rating">
+    <span *ngFor="let star of stars">
+      <i [class.filled]="star <= place.rating">★</i>
+    </span>
+    <span class="score">{{ place.rating }}</span>
+  </div>
+
+  <p class="description">
+    {{ place.description }}
+  </p>
+
+  <div class="buttons">
+    <button>Conoce más</button>
+    <button class="fav" (click)="toggleFavorite()">
+      {{ isFavorite ? '❤️ Guardado' : '🤍 Guardar' }}
     </button>
   </div>
 
-  <!-- INFO -->
-  <div class="content">
-
-    <h2>{{ place.name }}</h2>
-    <p class="location">📍 {{ place.location }}</p>
-
-    <!-- RATING -->
-    <div class="rating">
-      <span *ngFor="let star of stars">⭐</span>
-      <span class="score">{{ place.rating }}</span>
-    </div>
-
-    <!-- DESCRIPCIÓN -->
-    <p class="description">
-      {{ place.description }}
-    </p>
-
-    <!-- BOTONES -->
-    <div class="buttons">
-      <button class="primary">Conoce más</button>
-    </div>
-
-    <!-- COMENTARIOS -->
-    <div class="comments">
-      <h3>Comentarios</h3>
-
-      <div class="comment" *ngFor="let c of place.comments">
-        <p class="user">{{ c.user }}</p>
-        <p class="text">{{ c.text }}</p>
-      </div>
-    </div>
-
-  </div>
 </div>
