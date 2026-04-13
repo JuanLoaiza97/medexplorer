@@ -1,32 +1,48 @@
 <div class="login-container">
 
-  <!-- 🔥 CARD -->
   <div class="login-card">
 
-    <!-- 🧭 LOGO -->
-    <img src="assets/logo_letra.png" alt="MedExplorer" class="logo">
+    <img src="assets/logo_letra.png" class="logo">
 
     <h2>Bienvenido a MedExplorer</h2>
     <p>Inicia sesión para explorar Medellín</p>
+
+    <p class="error" *ngIf="error">{{ error }}</p>
 
     <form (ngSubmit)="login()">
 
       <div class="input-group">
         <label>Email</label>
-        <input type="email" [(ngModel)]="email" name="email" required />
+        <input
+          type="email"
+          [(ngModel)]="email"
+          name="email"
+          required
+        />
       </div>
 
       <div class="input-group">
         <label>Contraseña</label>
-        <input type="password" [(ngModel)]="password" name="password" required />
+        <input
+          type="password"
+          [(ngModel)]="password"
+          name="password"
+          required
+        />
       </div>
 
-      <button type="submit">Iniciar sesión</button>
+      <button type="submit" [disabled]="loading">
+
+        <span *ngIf="!loading">Iniciar sesión</span>
+        <span *ngIf="loading">Ingresando...</span>
+
+      </button>
 
     </form>
 
     <span class="extra">
-      ¿No tienes cuenta? <b routerLink="/register">Regístrate</b>
+      ¿No tienes cuenta?
+      <b routerLink="/register">Regístrate</b>
     </span>
 
   </div>

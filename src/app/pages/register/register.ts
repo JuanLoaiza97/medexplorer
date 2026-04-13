@@ -3,6 +3,9 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 
+import { AuthService } from '../../services/auth.service';
+import { UserService } from '../../services/user.service';
+
 @Component({
   selector: 'app-register',
   standalone: true,
@@ -12,11 +15,16 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent {
 
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private authService: AuthService,
+    private userService: UserService
+  ) {}
 
-  step: number = 1;
-  error: string = '';
-  success: boolean = false;
+  step = 1;
+  error = '';
+  success = false;
+  loading = false;
 
   user = {
     name: '',
@@ -33,19 +41,17 @@ export class RegisterComponent {
     terms: false
   };
 
-  // 🔥 LISTA COMPLETA
   interestsList = [
     'Cultura','Turismo','Compras','Entretenimiento','Naturaleza','Familia',
     'Aire libre','Vida nocturna','Gastronomía','Música','Aventura','Educación',
     'Historia','Arte','Eventos','Lujo','Experiencia','Café','Deporte','Salud','Romántico'
   ];
 
-  // 🔥 VALIDACIONES POR PASO
   validateStep(): boolean {
     this.error = '';
 
     if (this.step === 1) {
-      if (!this.user.name || !this.user.email || !this.user.password || !this.user.confirmPassword) {
+      if (!this.user.email || !this.user.password || !this.user.name || !this.user.confirmPassword) {
         this.error = 'Completa todos los campos';
         return false;
       }
@@ -79,9 +85,7 @@ export class RegisterComponent {
   }
 
   next() {
-    if (this.validateStep()) {
-      this.step++;
-    }
+    if (this.validateStep()) this.step++;
   }
 
   prev() {
@@ -89,25 +93,76 @@ export class RegisterComponent {
     if (this.step > 1) this.step--;
   }
 
-  toggleInterest(interest: string) {
-    if (this.user.interests.includes(interest)) {
-      this.user.interests = this.user.interests.filter(i => i !== interest);
+  toggleInterest(i: string) {
+    if (this.user.interests.includes(i)) {
+      this.user.interests = this.user.interests.filter(x => x !== i);
     } else {
-      this.user.interests.push(interest);
+      this.user.interests.push(i);
     }
   }
 
-  register() {
+  async register() {
     if (!this.validateStep()) return;
 
-    console.log('Usuario registrado:', this.user);
+    this.loading = true;
+    this.error = '';
 
-    // 🔥 ANIMACIÓN
-    this.success = true;
+    try {
+      console.log('Starting registration...');
 
-    // 🔥 REDIRECCIÓN
-    setTimeout(() => {
-      this.router.navigate(['/login']);
-    }, 2000);
+      // 1. AUTH
+      const credential = await this.authService.register(
+        this.user.email,
+        this.user.password
+      );
+
+      const uid = credential.user.uid;
+
+      console.log('Auth created:', uid);
+
+      // 2. FIRESTORE
+      await this.userService.saveUser(uid, {
+        name: this.user.name,
+        email: this.user.email,
+        phone: this.user.phone,
+        country: this.user.country,
+        userType: this.user.userType,
+        disability: this.user.disability,
+        birthDate: this.user.birthDate,
+        gender: this.user.gender,
+        interests: this.user.interests,
+        createdAt: new Date()
+      });
+
+      // 3. SUCCESS UI
+      this.success = true;
+      this.loading = false;
+
+      console.log('Registration completed');
+
+      setTimeout(() => {
+        this.router.navigate(['/login']);
+      }, 1500);
+
+    } catch (error: any) {
+
+      console.error('Register error:', error);
+
+      this.loading = false;
+
+      switch (error.code) {
+        case 'auth/email-already-in-use':
+          this.error = 'Este correo ya está registrado';
+          break;
+        case 'auth/invalid-email':
+          this.error = 'Correo inválido';
+          break;
+        case 'auth/weak-password':
+          this.error = 'La contraseña debe tener mínimo 6 caracteres';
+          break;
+        default:
+          this.error = 'Error al crear la cuenta';
+      }
+    }
   }
 }

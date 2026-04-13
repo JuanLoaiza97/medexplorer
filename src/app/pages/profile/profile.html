@@ -1,0 +1,79 @@
+<app-navbar></app-navbar>
+
+<div class="profile-container">
+
+  <div class="profile-header" *ngIf="user">
+
+    <h1>Bienvenido a tu estación, {{ user.name }}</h1>
+
+    <p class="email">{{ user.email }}</p>
+
+    <div class="tags">
+      <span *ngFor="let i of user.interests">{{ i }}</span>
+    </div>
+
+  </div>
+
+  <div *ngIf="loading" class="loading">
+    Cargando perfil...
+  </div>
+
+  <div class="profile-content" *ngIf="!loading && user">
+
+    <!-- INTERESES -->
+    <section>
+      <h2>🎯 Tus intereses</h2>
+      <div class="card-list">
+        <div class="card" *ngFor="let i of user.interests">
+          {{ i }}
+        </div>
+      </div>
+    </section>
+
+    <!-- FAVORITOS -->
+    <section>
+      <h2>⭐ Lugares favoritos</h2>
+
+      <div class="empty" *ngIf="favoritePlaces.length === 0">
+        Aún no tienes favoritos
+      </div>
+
+      <div class="card-list">
+        <div class="card" *ngFor="let p of favoritePlaces">
+          {{ p.name }}
+        </div>
+      </div>
+    </section>
+
+    <!-- VISITADOS -->
+    <section>
+      <h2>📍 Lugares visitados</h2>
+
+      <div class="empty" *ngIf="visitedPlaces.length === 0">
+        Aún no has visitado lugares
+      </div>
+
+      <div class="card-list">
+        <div class="card" *ngFor="let p of visitedPlaces">
+          {{ p.name }}
+        </div>
+      </div>
+    </section>
+
+    <!-- COMENTARIOS -->
+    <section>
+      <h2>💬 Tus comentarios</h2>
+
+      <div class="empty" *ngIf="comments.length === 0">
+        Aún no has hecho comentarios
+      </div>
+
+      <div class="comment" *ngFor="let c of comments">
+        <p>{{ c.text }}</p>
+        <small>{{ c.place }}</small>
+      </div>
+    </section>
+
+  </div>
+
+</div>
