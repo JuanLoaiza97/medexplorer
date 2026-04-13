@@ -2,25 +2,28 @@
 
 <div class="container">
 
-  <!-- Buscador -->
-  <app-search-bar></app-search-bar>
+  <!-- 🔍 Buscador -->
+  <app-search-bar (searchChange)="onSearchChange($event)"></app-search-bar>
+
+  <!-- 🎯 Filtros -->
+  <app-filters (filterChange)="onFilterChange($event)"></app-filters>
 
   <div class="main-content">
 
-    <!-- Mapa -->
+    <!-- 🗺️ MAPA -->
     <div class="map-container">
-      <app-map></app-map>
+      <app-map
+        [filter]="selectedTag"
+        [search]="searchTerm">
+      </app-map>
     </div>
 
-    <!-- Panel lateral -->
+    <!-- 📦 PANEL -->
     <div class="panel-container">
       <app-place-panel></app-place-panel>
     </div>
 
   </div>
-
-  <!-- Filtros -->
-  <app-filters></app-filters>
 
 </div>
 

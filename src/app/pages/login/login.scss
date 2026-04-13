@@ -1,71 +1,100 @@
+/* 🌆 FONDO IGUAL QUE REGISTER */
 .login-container {
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
 
-  background: linear-gradient(to right, #e0f2fe, #f0fdf4);
+  background: url('/assets/medellin.jpg') no-repeat center center/cover;
 }
 
-/* CARD */
+/* 🔥 CARD GLASS (MISMO ESTILO REGISTER) */
 .login-card {
-  background: white;
-  padding: 40px;
+  width: 400px;
+  padding: 30px;
   border-radius: 20px;
-  width: 350px;
 
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
+
+  border: 1px solid rgba(255,255,255,0.3);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+
   text-align: center;
+  color: white;
 }
 
+/* 🧠 LOGO */
+.logo {
+  width: 260px;
+  margin-bottom: 10px;
+}
+
+/* 🏷️ TITULO */
 h2 {
-  margin-bottom: 5px;
+  margin-bottom: 10px;
+  font-weight: 600;
 }
 
+/* SUBTEXTO */
 p {
-  margin-bottom: 25px;
-  color: #6b7280;
+  margin-bottom: 20px;
+  color: rgba(255,255,255,0.8);
+  font-size: 14px;
 }
 
-/* INPUTS */
+/* 🔤 INPUT GROUP (ADAPTADO A REGISTER) */
 .input-group {
   display: flex;
   flex-direction: column;
-  margin-bottom: 15px;
+  margin-bottom: 12px;
   text-align: left;
 
   label {
     font-size: 13px;
-    margin-bottom: 5px;
+    margin-bottom: 4px;
+    color: rgba(255,255,255,0.8);
   }
 
   input {
+    width: 100%;
     padding: 10px;
+
     border-radius: 10px;
-    border: 1px solid #e5e7eb;
+    border: none;
+
+    background: rgba(255,255,255,0.2);
+    color: white;
     outline: none;
+
     transition: 0.2s;
   }
 
+  input::placeholder {
+    color: rgba(255,255,255,0.7);
+  }
+
   input:focus {
-    border-color: #22c55e;
+    background: rgba(255,255,255,0.3);
   }
 }
 
-/* BOTÓN */
+/* 🔘 BOTÓN IGUAL QUE REGISTER */
 button {
   width: 100%;
-  padding: 12px;
+  padding: 10px;
   margin-top: 10px;
+
+  border-radius: 10px;
+  border: none;
+
+  cursor: pointer;
+  font-weight: 600;
 
   background: #22c55e;
   color: white;
-  border: none;
-  border-radius: 10px;
 
-  font-weight: 600;
-  cursor: pointer;
-  transition: 0.3s;
+  transition: background 0.2s;
 }
 
 button:hover {
@@ -77,13 +106,14 @@ button:hover {
   display: block;
   margin-top: 20px;
   font-size: 13px;
-  color: #6b7280;
+  color: rgba(255,255,255,0.8);
 
   b {
-    color: #22c55e;
+    color: #4ade80;
     cursor: pointer;
   }
-  .extra b:hover {
-  text-decoration: underline;
-}
+
+  b:hover {
+    text-decoration: underline;
+  }
 }

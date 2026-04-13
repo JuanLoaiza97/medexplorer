@@ -1,1 +1,10 @@
-<div id="map"></div>
+<div class="map-wrapper">
+
+  <div id="map"></div>
+
+  <!-- 🚨 MENSAJE NO RESULTS -->
+  <div class="no-results" *ngIf="noResults">
+    🔍 No encontramos resultados para tu búsqueda
+  </div>
+
+</div>

@@ -1,0 +1,90 @@
+<div class="detail" *ngIf="place$ | async as place">
+
+  <!-- 🖼️ HERO -->
+  <div class="hero">
+    <img [src]="place.image" alt="">
+
+    <div class="hero-overlay">
+
+      <!-- 🏷️ NOMBRE -->
+      <h1 class="title">{{ place.name }}</h1>
+
+      <!-- 🔽 INFO PRINCIPAL -->
+      <div class="hero-info">
+        <span class="location">📍 {{ place.location }}</span>
+
+        <div class="rating">
+          <span *ngFor="let star of stars">
+            <i [class.filled]="star <= place.rating">★</i>
+          </span>
+          <span>{{ place.rating }}</span>
+        </div>
+
+        <div class="price">
+          💰 {{ place.price || 'Gratis' }}
+        </div>
+
+        <!-- ❤️ -->
+        <button class="fav" (click)="toggleFavorite()">
+          {{ isFavorite ? '❤️' : '🤍' }}
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 📦 CONTENIDO -->
+  <div class="content">
+
+    <!-- 🏷️ TAGS -->
+    <div class="tags">
+      <span *ngFor="let tag of place.tags">{{ tag }}</span>
+    </div>
+
+    <!-- 📊 INFO EXTRA (NUEVO BLOQUE PRO) -->
+    <div class="info-grid">
+      <div>📍 <b>Dirección:</b> {{ place.address }}</div>
+      <div>🕒 <b>Horario:</b> {{ place.openingHours }}</div>
+      <div>🌤️ <b>Mejor momento:</b> {{ place.bestTime }}</div>
+      <div>🛡️ <b>Seguridad:</b> {{ place.securityLevel }}</div>
+      <div>♿ <b>Accesible:</b> {{ place.accessible ? 'Sí' : 'No' }}</div>
+    </div>
+
+    <!-- 📝 -->
+    <p class="description">{{ place.description }}</p>
+
+    <!-- 📜 HISTORIA -->
+    <div class="section">
+      <h3>Historia</h3>
+      <p>{{ place.history }}</p>
+    </div>
+
+    <!-- 🤓 DATOS CURIOSOS -->
+    <div class="section" *ngIf="place.facts?.length">
+      <h3>Datos curiosos</h3>
+
+      <div class="facts">
+        <div class="fact" *ngFor="let fact of place.facts">
+          {{ fact }}
+        </div>
+      </div>
+    </div>
+
+    <!-- 💬 COMENTARIOS -->
+    <div class="comments" *ngIf="place.comments?.length">
+      <h3>Comentarios</h3>
+
+      <div class="comment" *ngFor="let c of place.comments">
+        <b>{{ c.user }}</b>
+        <p>{{ c.text }}</p>
+      </div>
+    </div>
+
+    <!-- 🔘 -->
+    <div class="actions">
+      <button routerLink="/">Volver</button>
+      <button class="primary">Calificar</button>
+    </div>
+
+  </div>
+</div>

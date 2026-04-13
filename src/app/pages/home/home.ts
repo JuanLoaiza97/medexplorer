@@ -1,5 +1,3 @@
-
-// export class Home {}
 import { Component } from '@angular/core';
 
 // Shared
@@ -11,7 +9,6 @@ import { SearchBarComponent } from '../../shared/search-bar/search-bar';
 import { MapComponent } from '../../features/map/map/map';
 import { PlacePanelComponent } from '../../features/places/place-panel/place-panel';
 import { FiltersComponent } from '../../features/places/filters/filters';
-
 
 @Component({
   selector: 'app-home',
@@ -27,4 +24,17 @@ import { FiltersComponent } from '../../features/places/filters/filters';
   templateUrl: './home.html',
   styleUrl: './home.scss'
 })
-export class HomeComponent {}
+export class HomeComponent {
+
+  selectedTag: string | null = null;
+  searchTerm: string = '';
+
+  onFilterChange(tag: string | null) {
+    this.selectedTag = tag;
+  }
+
+  onSearchChange(term: string) {
+    this.searchTerm = term;
+  }
+
+}

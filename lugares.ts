@@ -1,4 +1,3 @@
-//
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -384,7 +383,7 @@ export class PlacesService {
       location: 'San Javier',
       address: 'Comuna 13, Medellín',
       rating: 4.9,
-      image: 'assets/images/comuna13.jpg',
+      image: 'assets/comuna13.jpg',
 
       description: 'Uno de los lugares más emblemáticos de Medellín por su transformación social, lleno de arte urbano, historia y cultura viva.',
       tags: ['Cultura', 'Historia', 'Turismo'],

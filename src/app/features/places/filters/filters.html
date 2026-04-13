@@ -1,6 +1,11 @@
 <div class="filters">
-  <button>Cultura</button>
-  <button>Gastronomía</button>
-  <button>Naturaleza</button>
-  <button>Nocturno</button>
+
+  <button
+    *ngFor="let tag of tags"
+    (click)="selectTag(tag)"
+    [class.active]="selectedTag === tag"
+  >
+    {{ tag }}
+  </button>
+
 </div>

@@ -18,7 +18,9 @@
   </p>
 
   <div class="buttons">
-    <button>Conoce más</button>
+    <button class="primary" routerLink="/place">
+      Conoce más
+    </button>
     <button class="fav" (click)="toggleFavorite()">
       {{ isFavorite ? '❤️ Guardado' : '🤍 Guardar' }}
     </button>

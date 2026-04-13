@@ -31,12 +31,13 @@
 // }
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { PlaceService } from '../../../services/place';
 
 @Component({
   selector: 'app-place-panel',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './place-panel.html',
   styleUrl: './place-panel.scss'
 })
