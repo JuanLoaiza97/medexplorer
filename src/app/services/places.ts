@@ -12,25 +12,27 @@ export class PlacesService {
     {
       id: 1,
       name: 'Provenza',
-      lat: 6.209,
-      lng: -75.567,
-      location: 'El Poblado',
-      address: 'Cra 35, El Poblado, Medellín',
+      lat: 6.2084716,
+      lng: -75.5657768,
+      location: 'Barrio El Poblado',
+      address: 'Cra. 35 #7-33, El Poblado',
       rating: 4.7,
       image: 'assets/images/provenza.jpg',
 
-      description: 'Zona exclusiva de vida nocturna con bares premium, rooftops y restaurantes internacionales. Es uno de los sectores más modernos y visitados por turistas en Medellín.',
+      description: 'Una de las zonas más vibrantes y famosas de Medellín, ubicada en el exclusivo sector de El Poblado. Ha ganado reconocimiento internacional (incluso destacada por la revista Time Out como una de las calles más "cool" del mundo) por su increíble ambiente bohemio, cosmopolita y su animada vida nocturna.',
       tags: ['Vida nocturna', 'Gastronomía', 'Turismo'],
 
       accessible: true,
-      openingHours: '10:00 AM - 2:00 AM',
+      openingHours: '9:00 AM - 2:00 AM',
       bestTime: 'Noche',
       securityLevel: 'Alto',
 
       history: `
-      Provenza pasó de ser una zona residencial tranquila a convertirse en uno de los principales epicentros de entretenimiento de Medellín.
-      Su crecimiento se dio gracias al auge del turismo internacional y al desarrollo de propuestas gastronómicas innovadoras.
-      Hoy es considerada una de las zonas más exclusivas de la ciudad.
+      Provenza comenzó a desarrollarse en la década de 1950 como un barrio residencial de clase alta, 
+      construido en los terrenos de la antigua Finca Provenza por el Banco Central Hipotecario. 
+      Con el tiempo, las casas coloniales y modernas fueron transformándose en locales comerciales. 
+      Su mayor auge ocurrió tras la pandemia, cuando se peatonalizaron varias vías y el sector se organizó para convertirse en un referente mundial de entretenimiento, 
+      siendo incluso mencionado en canciones de artistas globales como Karol G.
       `,
 
       facts: [
@@ -40,7 +42,7 @@ export class PlacesService {
         'Ambiente cosmopolita.'
       ],
 
-      price: '$40.000 - $120.000 COP',
+      price: '$120.000 - $500.000 COP',
 
       comments: [
         { user: 'Laura', text: 'El mejor ambiente nocturno 🔥' },
@@ -51,24 +53,27 @@ export class PlacesService {
     {
       id: 2,
       name: 'Parque Lleras',
-      lat: 6.208,
-      lng: -75.565,
+      lat: 6.208881,
+      lng: -75.5677791,
       location: 'El Poblado',
-      address: 'Cra 38 #9A-10, Medellín',
-      rating: 4.6,
+      address: 'Calle 10 con Carrera 38',
+      rating: 4.4,
       image: 'assets/images/lleras.jpg',
 
-      description: 'El corazón de la vida nocturna en Medellín, rodeado de bares, discotecas y restaurantes.',
+      description: 'Uno de los puntos de encuentro más icónicos de la ciudad. Recientemente remodelado y peatonalizado, el parque es una plaza rodeada de una densa oferta de discotecas, bares de música crossover, restaurantes y hostales.',
       tags: ['Vida nocturna', 'Turismo'],
 
       accessible: true,
-      openingHours: '10:00 AM - 2:00 AM',
+      openingHours: '6:00 PM - 6:00 AM',
       bestTime: 'Noche',
-      securityLevel: 'Alto',
+      securityLevel: 'Medio',
 
       history: `
-      El Parque Lleras ha sido históricamente el punto de encuentro para la vida nocturna en Medellín.
-      Con el paso del tiempo se convirtió en una referencia internacional para turistas que buscan fiesta.
+      Surgió en la década de los 30 como un espacio verde donado por el señor Julio Enrique Lleras.
+      Durante años fue un sector residencial tranquilo hasta que en los años 70 y 80 comenzó su transformación comercial. 
+      Ha sobrevivido a momentos difíciles de la historia de la ciudad, incluyendo un atentado en 2001, 
+      logrando reinventarse siempre como el corazón del entretenimiento. 
+      En 2023, fue entregada su más reciente renovación urbana que integró más zonas peatonales y vegetación.
       `,
 
       facts: [
@@ -78,7 +83,7 @@ export class PlacesService {
         'Alta actividad nocturna.'
       ],
 
-      price: '$30.000 - $100.000',
+      price: '$150.000 - $700.000',
 
       comments: [
         { user: 'Camila', text: 'Siempre hay ambiente.' },
@@ -89,24 +94,27 @@ export class PlacesService {
     {
       id: 3,
       name: 'La 70',
-      lat: 6.244,
-      lng: -75.590,
+      lat: 6.24831,
+      lng: -75.58935,
       location: 'Laureles',
       address: 'Av. 70, Medellín',
-      rating: 4.5,
+      rating: 4.6,
       image: 'assets/images/la70.jpg',
 
-      description: 'Avenida tradicional con bares de música en vivo y ambiente local paisa.',
+      description: 'Corredor turístico y de entretenimiento más importante del occidente de la ciudad. A diferencia de Provenza, La 70 ofrece un ambiente mucho más auténtico y local',
       tags: ['Vida nocturna', 'Cultura'],
 
       accessible: true,
-      openingHours: '10:00 AM - 2:00 AM',
+      openingHours: '11:00 AM - 3:00 AM',
       bestTime: 'Noche',
-      securityLevel: 'Alto',
+      securityLevel: 'Medio',
 
       history: `
-      La Avenida 70 ha sido durante décadas un punto clave de entretenimiento para los locales.
-      A diferencia de otras zonas, mantiene una esencia más auténtica y cultural.
+      Antiguamente conocida como la "Avenida El Colombiano" (en honor a los 70 años del periódico homónimo en 1982), 
+      este corredor nació como parte del desarrollo residencial de Laureles en los años 30 y 40. 
+      Su vocación comercial se consolidó con la construcción de la Unidad Deportiva Atanasio Girardot en 1953, 
+      convirtiéndose en el epicentro de la celebración deportiva y cultural de la ciudad. 
+      Recientemente fue intervenida urbanísticamente para mejorar sus senderos peatonales y áreas verdes.
       `,
 
       facts: [
@@ -116,7 +124,7 @@ export class PlacesService {
         'Ideal para bailar.'
       ],
 
-      price: '$20.000 - $60.000',
+      price: '$50.000 - $250.000',
 
       comments: [
         { user: 'Sofía', text: 'Muy auténtico 💃' }
@@ -126,24 +134,26 @@ export class PlacesService {
     {
       id: 4,
       name: 'Vintrash Bar',
-      lat: 6.2095,
-      lng: -75.566,
+      lat: 6.2079191,
+      lng: -75.5660177,
       location: 'Poblado',
-      address: 'Cra 36 #10-42, Medellín',
-      rating: 4.4,
+      address: 'Carrera 35 # 8A - 39, Medellín',
+      rating: 4.2,
       image: 'assets/images/vintrash.jpg',
 
-      description: 'Bar temático con decoración extravagante, ideal para una experiencia diferente.',
+      description: 'Bar-discoteca que se define como el "templo de la gozadera". Se destaca por su concepto de "upcycling" (reciclaje creativo) y una estética retro/vintage.',
       tags: ['Vida nocturna', 'Entretenimiento'],
 
       accessible: true,
-      openingHours: '10:00 AM - 2:00 AM',
+      openingHours: '4:00 PM - 4:00 AM',
       bestTime: 'Noche',
       securityLevel: 'Alto',
 
       history: `
-      Vintrash se posicionó como un bar alternativo en Medellín,
-      destacándose por su estética llamativa y ambiente juvenil.
+      Vintrash nació originalmente en Bucaramanga y luego se expandió con gran éxito a Bogotá y Medellín. 
+      Su concepto revolucionó la rumba tradicional al mezclar arte, diseño sostenible y diversos géneros musicales en un solo lugar. 
+      En Medellín, se consolidó rápidamente como un pilar de la transformación de la Carrera 35 en Provenza, 
+      convirtiéndose en un paso obligado para quienes buscan una experiencia de rumba menos convencional y más creativa.
       `,
 
       facts: [
@@ -152,7 +162,7 @@ export class PlacesService {
         'Ambiente juvenil.'
       ],
 
-      price: '$30.000 - $80.000',
+      price: '$50.000 - $120.000',
 
       comments: [
         { user: 'Juan', text: 'Muy diferente 🔥' }
@@ -162,24 +172,27 @@ export class PlacesService {
     {
       id: 5,
       name: 'Salon Amador',
-      lat: 6.210,
-      lng: -75.567,
+      lat: 6.2098969,
+      lng: -75.5682776,
       location: 'Poblado',
-      address: 'Cra 34 #7-159, Medellín',
-      rating: 4.3,
+      address: 'Calle 10 # 40-30, Medellín',
+      rating: 4.4,
       image: 'assets/images/amador.jpg',
 
-      description: 'Club de música electrónica con DJs internacionales y ambiente underground.',
+      description: 'club de música electrónica de primer nivel, conocido por su sistema de sonido de alta fidelidad y una curaduría musical impecable que incluye House, Techno y ritmos alternativos.',
       tags: ['Vida nocturna', 'Música'],
 
       accessible: true,
-      openingHours: '10:00 AM - 2:00 AM',
+      openingHours: '10:00 pm - 4:00 AM',
       bestTime: 'Noche',
       securityLevel: 'Alto',
 
       history: `
-      Salon Amador es uno de los referentes de música electrónica en Medellín,
-      con presentaciones de artistas internacionales.
+      Salón Amador se consolidó rápidamente como un referente de la escena "underground" 
+      elegante en Medellín. Fue diseñado para llenar un vacío en la ciudad: un lugar que combinara 
+      la atmósfera íntima de un salón con la potencia de un club de clase mundial. A lo largo de los años, 
+      ha sido pieza clave para posicionar a Medellín como una parada obligatoria para la música electrónica en Sudamérica, 
+      manteniendo una identidad clara que prioriza la calidad sonora y el respeto por la cultura del baile.
       `,
 
       facts: [
@@ -188,7 +201,7 @@ export class PlacesService {
         'Sonido profesional.'
       ],
 
-      price: '$50.000+',
+      price: '$70.000+',
 
       comments: [
         { user: 'Diego', text: 'Top electrónica 🎧' }
@@ -199,24 +212,26 @@ export class PlacesService {
     {
       id: 6,
       name: 'Parque Arví',
-      lat: 6.270,
-      lng: -75.500,
+      lat: 6.2803712,
+      lng: -75.5026504,
       location: 'Santa Elena',
-      address: 'Vía Santa Elena, Medellín',
-      rating: 4.8,
+      address: 'Corregimiento de Santa Elena, Medellín,',
+      rating: 4.7,
       image: 'assets/images/arvi.jpg',
 
-      description: 'Reserva natural ideal para desconectarse de la ciudad.',
+      description: 'Parque natural ecológico que se extiende sobre 16,000 hectáreas. Es un centro de ecoturismo diseñado para el disfrute de la riqueza ambiental de la región',
       tags: ['Naturaleza', 'Aventura', 'Turismo'],
 
       accessible: true,
-      openingHours: '10:00 AM - 2:00 AM',
-      bestTime: 'Noche',
+      openingHours: '9:00 AM - 6:00 PM',
+      bestTime: 'Mañana',
       securityLevel: 'Alto',
 
       history: `
-      El Parque Arví es una reserva ecológica protegida que promueve el turismo sostenible.
-      Se ha convertido en un espacio clave para conectar con la naturaleza.
+      El Parque Arví fue concebido como un proyecto de desarrollo sostenible para proteger la cuenca hidrográfica y la biodiversidad de la zona, 
+      además de preservar el patrimonio arqueológico (como el antiguo camino de piedras "Caminos de Guaca"). Fue inaugurado oficialmente en su 
+      forma actual en el año 2010, coincidiendo con la apertura de la línea de Metrocable Arví, lo que facilitó el acceso masivo de locales y 
+      turistas a esta reserva natural.
       `,
 
       facts: [
@@ -235,24 +250,26 @@ export class PlacesService {
     {
       id: 7,
       name: 'Cerro Nutibara',
-      lat: 6.244,
-      lng: -75.580,
-      location: 'Centro',
-      address: 'Cerro Nutibara, Medellín',
-      rating: 4.6,
+      lat: 6.2363889,
+      lng: -75.58,
+      location: 'Comuna 16 (Belén), Medellín',
+      address: 'Calle 30 No. 55 – 64',
+      rating: 4.5,
       image: 'assets/images/nutibara.jpg',
 
-      description: 'Cerro con vista panorámica de la ciudad y hogar del Pueblito Paisa.',
+      description: 'Parque metropolitano de 33 hectáreas que se eleva 80 metros sobre el nivel de la ciudad.',
       tags: ['Naturaleza', 'Cultura', 'Turismo'],
 
       accessible: true,
-      openingHours: '10:00 AM - 2:00 AM',
-      bestTime: 'Noche',
+      openingHours: '8:00 AM - 10:00 PM',
+      bestTime: 'Tarde',
       securityLevel: 'Alto',
 
       history: `
-      Es uno de los cerros tutelares de Medellín y un símbolo cultural de la ciudad.
-      En su cima se construyó el Pueblito Paisa.
+      Originalmente llamado Cerro de los Cadavides, fue comprado por la ciudad en 1927 
+      para ser convertido en un parque recreativo. En 1978 se inauguró el Pueblito Paisa, 
+      construido con materiales rescatados del antiguo pueblo de El Peñol (que fue inundado para construir el embalse de Guatapé). 
+      El cerro lleva el nombre del Cacique Nutibara, un importante líder indígena de la región.
       `,
 
       facts: [
@@ -271,24 +288,27 @@ export class PlacesService {
     {
       id: 8,
       name: 'Jardín Botánico',
-      lat: 6.270,
-      lng: -75.563,
-      location: 'Norte',
-      address: 'Cl. 73 #51D-14, Medellín',
+      lat: 6.2709,
+      lng: -75.5654,
+      location: 'Zona Norte, Medellín',
+      address: 'Calle 73 # 51D - 14',
       rating: 4.7,
       image: 'assets/images/botanico.jpg',
 
-      description: 'Espacio natural con gran diversidad de flora y arquitectura icónica.',
+      description: 'Museo vivo y centro de investigación científica de 13.2 hectáreas. Es famoso por su Orquideorama, una estructura arquitectónica de madera que simula un bosque de flores y árboles.',
       tags: ['Naturaleza', 'Cultura'],
 
       accessible: true,
-      openingHours: '10:00 AM - 2:00 AM',
-      bestTime: 'Noche',
-      securityLevel: 'Alto',
+      openingHours: '9:00 AM - 4:00 PM',
+      bestTime: 'Mañana',
+      securityLevel: 'Muy Alto',
 
       history: `
-      El Jardín Botánico ha sido un espacio clave para la conservación ambiental
-      y la educación en Medellín.
+      Sus orígenes se remontan a finales del siglo XIX como la "Casa de Baños el Edén". 
+      En 1913 se convirtió en el "Bosque de la Independencia" y finalmente, en 1972, se 
+      transformó en el Jardín Botánico actual para la VII Conferencia Mundial de Orquideología. 
+      A principios de los años 2000, vivió una renovación urbana total que incluyó la construcción del galardonado Orquideorama, 
+      convirtiéndose en un símbolo de la transformación social de Medellín.
       `,
 
       facts: [
@@ -307,24 +327,26 @@ export class PlacesService {
     {
       id: 9,
       name: 'Parque Explora',
-      lat: 6.268,
-      lng: -75.565,
-      location: 'Norte',
-      address: 'Cra 52 #73-75, Medellín',
-      rating: 4.5,
+      lat: 6.2698891,
+      lng: -75.5658286,
+      location: 'Zona Norte, Medellín',
+      address: 'Carrera 52 # 73 - 75',
+      rating: 4.7,
       image: 'assets/images/explora.jpg',
 
-      description: 'Parque interactivo de ciencia y tecnología.',
+      description: 'Museo interactivo de ciencias, artes y tecnología. Cuenta con más de 300 experiencias interactivas repartidas en salas dedicadas a la mente, el tiempo, la música y la física.',
       tags: ['Cultura', 'Educación'],
 
       accessible: true,
-      openingHours: '10:00 AM - 2:00 AM',
-      bestTime: 'Noche',
+      openingHours: '8:30 AM - 5:30 PM',
+      bestTime: 'Mañana',
       securityLevel: 'Alto',
 
       history: `
-      Parque Explora fue creado para fomentar el aprendizaje interactivo
-      en ciencia y tecnología.
+      Inaugurado en diciembre de 2007, fue parte de un ambicioso proyecto de transformación
+      urbana de la Zona Norte de Medellín liderado por la alcaldía de la época. Diseñado por el arquitecto Alejandro Echeverri, 
+      el complejo de cuatro "cajas rojas" se convirtió rápidamente en un hito arquitectónico y educativo que simboliza el compromiso 
+      de la ciudad con la innovación y la inclusión social.
       `,
 
       facts: [
@@ -333,7 +355,7 @@ export class PlacesService {
         'Experiencias educativas.'
       ],
 
-      price: '$25.000',
+      price: '$35.000',
 
       comments: [
         { user: 'Carlos', text: 'Muy educativo 👌' }
@@ -343,24 +365,27 @@ export class PlacesService {
     {
       id: 10,
       name: 'Ecoparque El Salado',
-      lat: 6.170,
-      lng: -75.600,
+      lat: 6.1369872,
+      lng: -75.5693948,
       location: 'Envigado',
-      address: 'Envigado, Antioquia',
-      rating: 4.6,
+      address: 'Vereda El Vallano, Envigado',
+      rating: 4.7,
       image: 'assets/images/salado.jpg',
 
-      description: 'Espacio natural con senderos, cascadas y aire puro.',
+      description: 'Uno de los parques ecoturísticos más grandes del departamento (170,000 m²). Se caracteriza por ser una reserva natural bañada por la quebrada La Ayurá.',
       tags: ['Naturaleza', 'Aventura'],
 
       accessible: true,
-      openingHours: '10:00 AM - 2:00 AM',
-      bestTime: 'Noche',
-      securityLevel: 'Alto',
+      openingHours: '10:00 AM - 5:00 PM',
+      bestTime: 'Mañana',
+      securityLevel: 'Muy Alto',
 
       history: `
-      El Ecoparque El Salado es un espacio de conservación natural
-      muy visitado por locales para actividades ecológicas.
+      El parque fue concebido como una estrategia para la conservación del ecosistema de la 
+      microcuenca de la quebrada La Ayurá y para ofrecer un espacio de recreación sostenible a 
+      los habitantes de Envigado y el resto del valle. A lo largo de los años, ha pasado de ser un 
+      simple balneario natural a un complejo ecoturístico estructurado que promueve la educación 
+      ambiental y el turismo de aventura suav
       `,
 
       facts: [
@@ -379,25 +404,26 @@ export class PlacesService {
     {
       id: 11,
       name: 'Comuna 13',
-      lat: 6.2518,
-      lng: -75.623,
+      lat: 6.2541,
+      lng: -75.6117,
       location: 'San Javier',
       address: 'Comuna 13, Medellín',
-      rating: 4.9,
+      rating: 4.8,
       image: 'assets/images/comuna13.jpg',
 
-      description: 'Uno de los lugares más emblemáticos de Medellín por su transformación social, lleno de arte urbano, historia y cultura viva.',
+      description: 'Antiguamente una de las zonas más peligrosas del mundo, hoy es un vibrante epicentro cultural y artístico. Es famosa por su "Graffitour", donde enormes murales cuentan historias de resistencia y esperanza.',
       tags: ['Cultura', 'Historia', 'Turismo'],
 
       accessible: true,
-      openingHours: '10:00 AM - 2:00 AM',
-      bestTime: 'Día',
+      openingHours: '6:00 AM - 10:00 PM',
+      bestTime: 'Mañana',
       securityLevel: 'Alto',
 
       history: `
-      La Comuna 13 fue durante muchos años una de las zonas más conflictivas de Medellín debido a la violencia urbana.
-      A partir de los años 2000, se implementaron proyectos de transformación social y urbana como las escaleras eléctricas.
-      Hoy es un símbolo mundial de resiliencia y cambio a través del arte.
+      Su historia está marcada por el dolor y la superación. Durante los años 90 y principios de los 2000 fue 
+      escenario de intensos conflictos entre guerrillas, paramilitares y el Estado (destacando la Operación Orión en 2002). 
+      La construcción de las escaleras eléctricas en 2011 y el Metrocable transformaron la movilidad y la dignidad del barrio, 
+      permitiendo que el arte y el turismo reemplazaran a la violencia, convirtiéndola en un modelo global de urbanismo social.
       `,
 
       facts: [
@@ -418,24 +444,26 @@ export class PlacesService {
     {
       id: 12,
       name: 'Museo de Antioquia',
-      lat: 6.251,
-      lng: -75.563,
-      location: 'Centro',
+      lat: 6.252277,
+      lng: -75.564947,
+      location: 'Centro de Medellín',
       address: 'Cra 52 #52-43, Medellín',
       rating: 4.7,
       image: 'assets/images/museo.jpg',
 
-      description: 'Uno de los museos más importantes de Colombia, con obras de Fernando Botero.',
+      description: 'El primer museo fundado en el departamento y el segundo en Colombia.',
       tags: ['Cultura', 'Historia', 'Arte'],
 
       accessible: true,
-      openingHours: '10:00 AM - 2:00 AM',
-      bestTime: 'Día',
-      securityLevel: 'Alto',
+      openingHours: '10:00 AM - 5:30 PM',
+      bestTime: 'Mañana',
+      securityLevel: 'Medio',
 
       history: `
-      Fundado en 1881, es uno de los museos más antiguos del país.
-      Alberga una de las colecciones más importantes de arte colombiano.
+      Fundado en 1881 como el Museo de Zea, ha pasado por varias sedes y nombres. Su gran transformación ocurrió a finales 
+      de los años 90 y principios de los 2000, cuando se trasladó al actual Palacio Municipal y se creó la Plaza de las 
+      Esculturas gracias a las generosas donaciones de Fernando Botero, convirtiéndose en el motor de la revitalización 
+      cultural del centro de la ciudad.
       `,
 
       facts: [
@@ -444,7 +472,7 @@ export class PlacesService {
         'Arte nacional e internacional.'
       ],
 
-      price: '$18.000',
+      price: '$18.000 - $40.000',
 
       comments: [
         { user: 'Laura', text: 'Muy interesante 🎨' }
@@ -454,24 +482,26 @@ export class PlacesService {
     {
       id: 13,
       name: 'Plaza Botero',
-      lat: 6.252,
-      lng: -75.563,
+      lat: 6.2522,
+      lng: -75.5647,
       location: 'Centro',
       address: 'Cra 52 #52-43, Medellín',
       rating: 4.6,
       image: 'assets/images/botero.jpg',
 
-      description: 'Plaza icónica con esculturas del maestro Fernando Botero.',
+      description: 'Un espacio público de 7.000 metros cuadrados que exhibe 23 esculturas de bronce monumentales donadas por el maestro Fernando Botero.',
       tags: ['Cultura', 'Turismo', 'Arte'],
 
       accessible: true,
-      openingHours: '10:00 AM - 2:00 AM',
-      bestTime: 'Día',
-      securityLevel: 'Alto',
+      openingHours: '10:00 AM - 5:30 PM',
+      bestTime: 'Mañana',
+      securityLevel: 'Medio',
 
       history: `
-      La plaza fue renovada para exhibir esculturas donadas por Botero.
-      Hoy es uno de los puntos turísticos más fotografiados.
+      Inaugurada en el año 2002, la plaza fue la piedra angular de un proyecto de renovación 
+      urbana masiva en el centro de Medellín. El maestro Botero propuso la creación de este 
+      espacio como un regalo a su ciudad natal, con la condición de que las obras estuvieran 
+      en la calle para que todas las personas pudieran disfrutar del arte de manera gratuita.
       `,
 
       facts: [
@@ -490,24 +520,27 @@ export class PlacesService {
     {
       id: 14,
       name: 'Teatro Metropolitano',
-      lat: 6.244,
-      lng: -75.573,
+      lat: 6.2430224,
+      lng: -75.5774573,
       location: 'Centro',
-      address: 'Cl. 41 #57-30, Medellín',
+      address: 'Calle 41 # 57 - 30, Medellín',
       rating: 4.8,
       image: 'assets/images/teatro.jpg',
 
-      description: 'Principal escenario cultural para eventos artísticos en Medellín.',
+      description: 'Uno de los centros culturales más importantes de Colombia. Con una capacidad para cerca de 1,600 personas, es la sede de la Filarmónica de Medellín.',
       tags: ['Cultura', 'Arte', 'Eventos'],
 
       accessible: true,
-      openingHours: '10:00 AM - 2:00 AM',
+      openingHours: '8:00 AM - 8:00 PM',
       bestTime: 'Noche',
       securityLevel: 'Alto',
 
       history: `
-      Inaugurado en 1987, es el principal teatro de la ciudad.
-      Recibe eventos internacionales de alto nivel.
+      Inaugurado en 1987, fue el resultado de un esfuerzo conjunto entre la empresa privada
+      y el sector público para dotar a la ciudad de un espacio con estándares internacionales de acústica. 
+      Lleva el nombre de José Gutiérrez Gómez, un importante líder empresarial que impulsó su creación. 
+      Desde entonces, ha sido el eje de la Temporada Internacional de Música Clásica y de innumerables 
+      eventos culturales que han transformado la cara artística de Medellín.
       `,
 
       facts: [
@@ -526,24 +559,26 @@ export class PlacesService {
     {
       id: 15,
       name: 'Casa de la Memoria',
-      lat: 6.245,
-      lng: -75.570,
-      location: 'Centro',
-      address: 'Cl. 51 #36-66, Medellín',
-      rating: 4.7,
+      lat: 6.2443,
+      lng: -75.5562,
+      location: 'Barrio Boston , Medellín',
+      address: 'Calle 51 # 36-66',
+      rating: 4.8,
       image: 'assets/images/memoria.jpg',
 
-      description: 'Espacio de memoria histórica del conflicto colombiano.',
+      description: 'Espacio de carácter público destinado a la reparación simbólica de las víctimas del conflicto armado en Medellín y Colombia.',
       tags: ['Cultura', 'Historia', 'Educación'],
 
       accessible: true,
-      openingHours: '10:00 AM - 2:00 AM',
+      openingHours: '9:00 AM - 6:00 PM',
       bestTime: 'Día',
-      securityLevel: 'Alto',
+      securityLevel: 'Medio',
 
       history: `
-      Este museo busca preservar la memoria del conflicto armado
-      y promover la construcción de paz.
+      Fue creado en 2006 a partir de una iniciativa del Programa de Atención a Víctimas 
+      de la Alcaldía de Medellín. El edificio actual, una pieza arquitectónica icónica de concreto y 
+      cristal, fue inaugurado en 2012. Se ha convertido en un referente internacional en museografía 
+      de memoria, siendo un lugar donde las voces de las víctimas son las protagonistas del relato histórico.
       `,
 
       facts: [
@@ -563,24 +598,26 @@ export class PlacesService {
     {
       id: 16,
       name: 'Mondongo’s',
-      lat: 6.207,
-      lng: -75.565,
+      lat: 6.2088,
+      lng: -75.5678,
       location: 'Poblado',
-      address: 'Cra 38 #10A-34',
-      rating: 4.8,
+      address: 'Calle 10 # 38 - 38',
+      rating: 4.7,
       image: 'assets/images/mondongos.jpg',
 
-      description: 'Restaurante tradicional paisa reconocido por su mondongo.',
+      description: 'Restaurante referente de la comida típica antioqueña. Aunque su menú es sencillo, se especializa en el Mondongo',
       tags: ['Gastronomía', 'Cultura'],
 
       accessible: true,
-      openingHours: '10:00 AM - 2:00 AM',
-      bestTime: 'Día',
-      securityLevel: 'Alto',
+      openingHours: '11:30 AM - 9:00 PM',
+      bestTime: 'Mediodía',
+      securityLevel: 'Muy Alto',
 
       history: `
-      Es uno de los restaurantes más tradicionales de Medellín,
-      famoso por su receta auténtica.
+      Mondongo's nació en octubre de 1976 gracias a una conversación entre amigos que querían un lugar digno para disfrutar de esta sopa tradicional. 
+      La primera sede fue la de La 70 y, debido a su éxito masivo por la calidad y el tamaño de los platos, se expandieron a 
+      El Poblado y posteriormente a Miami (Doral). Se ha mantenido como un negocio familiar que conserva la receta original 
+      y el espíritu de la hospitalidad paisa por más de 45 años.
       `,
 
       facts: [
@@ -599,24 +636,26 @@ export class PlacesService {
     {
       id: 17,
       name: 'Carmen',
-      lat: 6.209,
-      lng: -75.567,
+      lat: 6.209153,
+      lng: -75.564947,
       location: 'Poblado',
-      address: 'Cra 36 #10A-27',
-      rating: 4.9,
+      address: 'Carrera 36 # 10A - 27',
+      rating: 4.7,
       image: 'assets/images/carmen.jpg',
 
-      description: 'Restaurante de alta cocina con reconocimiento internacional.',
+      description: 'Rreferente de la gastronomía contemporánea en Colombia. Su propuesta se basa en el uso de ingredientes locales y biodiversos colombianos aplicados a técnicas de cocina moderna.',
       tags: ['Gastronomía', 'Lujo'],
 
       accessible: true,
-      openingHours: '10:00 AM - 2:00 AM',
+      openingHours: '12:00 PM - 10:30 PM',
       bestTime: 'Noche',
       securityLevel: 'Alto',
 
       history: `
-      Carmen ha posicionado a Medellín en el mapa gastronómico mundial
-      con propuestas innovadoras.
+      Fundado en 2008 por los chefs Carmen Angel y Rob Pevitts, el restaurante nació 
+      con el deseo de rendir homenaje a la despensa colombiana desde una perspectiva creativa y técnica. 
+      A lo largo de los años, ha sido incluido consistentemente en listas de los mejores restaurantes de 
+      Latinoamérica y ha jugado un papel crucial en elevar el perfil gastronómico de Medellín a nivel internacional.
       `,
 
       facts: [
@@ -635,24 +674,27 @@ export class PlacesService {
     {
       id: 18,
       name: 'El Cielo',
-      lat: 6.210,
-      lng: -75.566,
+      lat: 6.2091132,
+      lng: -75.5732386,
       location: 'Poblado',
-      address: 'Cra 40 #10A-22',
-      rating: 4.9,
+      address: 'Calle 7D # 43C - 36',
+      rating: 4.4,
       image: 'assets/images/cielo.jpg',
 
-      description: 'Experiencia gastronómica sensorial única.',
+      description: 'Uno de los restaurantes más innovadores del mundo, fundado por el reconocido chef Juan Manuel Barrientos.',
       tags: ['Gastronomía', 'Experiencia'],
 
       accessible: true,
-      openingHours: '10:00 AM - 2:00 AM',
+      openingHours: '11:00 PM - 11:00 PM',
       bestTime: 'Noche',
       securityLevel: 'Alto',
 
       history: `
-      Fundado por el chef Juan Manuel Barrientos,
-      es uno de los restaurantes más innovadores del país.
+      Fundado en 2007 en Medellín, Elcielo fue pionero en aplicar conceptos de neurociencia 
+      a la gastronomía en Latinoamérica. Su éxito llevó a la marca a expandirse a Bogotá, Miami y 
+      Washington D.C., logrando ser la primera cadena de restaurantes colombiana en obtener una 
+      Estrella Michelin (en su sede de EE. UU.). El restaurante de Medellín sigue siendo el corazón y 
+      origen de esta propuesta que busca "cocinar la paz de Colombia".
       `,
 
       facts: [
@@ -671,24 +713,27 @@ export class PlacesService {
     {
       id: 19,
       name: 'Pergamino Café',
-      lat: 6.208,
-      lng: -75.567,
+      lat: 6.2096753,
+      lng: -75.5658661,
       location: 'Poblado',
-      address: 'Cra 37 #8A-37',
-      rating: 4.7,
+      address: 'Carrera 37 # 8A - 37',
+      rating: 4.6,
       image: 'assets/images/pergamino.jpg',
 
-      description: 'Cafetería especializada en café colombiano premium.',
+      description: 'Referente mundial del café colombiano de alta calidad. Pergamino no es solo una cafetería, sino una empresa que tuesta y exporta granos de sus propias fincas y de productores locales.',
       tags: ['Gastronomía', 'Café'],
 
       accessible: true,
-      openingHours: '10:00 AM - 2:00 AM',
-      bestTime: 'Día',
+      openingHours: '8:00 AM - 9:00 PM',
+      bestTime: 'Mañana',
       securityLevel: 'Alto',
 
       history: `
-      Pergamino ha impulsado el consumo de café de especialidad en Medellín,
-      trabajando directamente con productores.
+      La familia Echavarría, con una tradición cafetera de décadas, fundó Pergamino para 
+      cerrar la brecha entre el productor y el consumidor final. En lugar de exportar todo el 
+      mejor café, decidieron dejar una parte para que los colombianos y turistas pudieran probar 
+      la verdadera calidad de exportación en casa. Su apertura fue clave para la transformación 
+      de la Vía Primavera en un corredor de diseño y gastronomía.
       `,
 
       facts: [
@@ -707,24 +752,27 @@ export class PlacesService {
     {
       id: 20,
       name: 'Hato Viejo',
-      lat: 6.250,
-      lng: -75.570,
-      location: 'Centro',
-      address: 'Cl. 16 #30-94',
+      lat: 6.2147,
+      lng: -75.5584,
+      location: 'Las Palmas',
+      address: 'Calle 16 # 28-60',
       rating: 4.6,
       image: 'assets/images/hato.jpg',
 
-      description: 'Restaurante tradicional de comida paisa.',
+      description: 'Restaurante de cocina tradicional colombiana que destaca por su ambiente acogedor que evoca las antiguas casonas antioqueñas.',
       tags: ['Gastronomía', 'Cultura'],
 
       accessible: true,
-      openingHours: '10:00 AM - 2:00 AM',
-      bestTime: 'Día',
-      securityLevel: 'Alto',
+      openingHours: '8:00 AM - 11:00 PM',
+      bestTime: 'Mediodía',
+      securityLevel: 'Muy Alto',
 
       history: `
-      Hato Viejo es un referente de la gastronomía tradicional,
-      con décadas de historia en Medellín.
+      Hatoviejo abrió sus puertas en 1982. Nació con la misión de exaltar la cultura y los sabores 
+      de Antioquia en un entorno de alta calidad. Con el tiempo, se convirtió en un paso obligado 
+      para presidentes, artistas y turistas, logrando expandir la marca sin perder la esencia de la sazón casera. 
+      Recientemente, han integrado opciones contemporáneas (como platos vegetarianos) para adaptarse a las nuevas generaciones
+      mientras conservan su legado de hospitalidad paisa.
       `,
 
       facts: [
@@ -733,7 +781,7 @@ export class PlacesService {
         'Ambiente típico.'
       ],
 
-      price: '$30.000 - $70.000',
+      price: '$50.000 - $265.000',
 
       comments: [
         { user: 'Pedro', text: 'Muy auténtico 👌' }
@@ -743,25 +791,26 @@ export class PlacesService {
     {
       id: 21,
       name: 'Estadio Atanasio Girardot',
-      lat: 6.256,
-      lng: -75.590,
+      lat: 6.256864,
+      lng: -75.59013,
       location: 'Estadio',
-      address: 'Cra 74 #48-10, Medellín',
-      rating: 4.8,
+      address: 'Carrera 74 # 48 - 01',
+      rating: 4.7,
       image: 'assets/images/estadio.jpg',
 
-      description: 'El principal estadio de Medellín y epicentro del fútbol colombiano, hogar de Atlético Nacional y el DIM.',
+      description: 'Estadio principal de la ciudad y el corazón de la Unidad Deportiva Atanasio Girardot. Tiene una capacidad para aproximadamente 45,000 espectadores y es la sede de los dos equipos profesionales de la ciudad: Atlético Nacional e Independiente Medellín.',
       tags: ['Deporte', 'Eventos', 'Turismo'],
 
       accessible: true,
-      openingHours: '10:00 AM - 2:00 AM',
-      bestTime: 'Noche',
-      securityLevel: 'Alto',
+      openingHours: '5:00 AM - 10:00 PM',
+      bestTime: 'Mañana',
+      securityLevel: 'Medio',
 
       history: `
-      Inaugurado en 1953, el estadio ha sido escenario de eventos deportivos históricos,
-      conciertos internacionales y momentos emblemáticos del fútbol colombiano.
-      Hace parte de la Unidad Deportiva Atanasio Girardot.
+      Inaugurado en 1953, lleva el nombre del prócer de la independencia Atanasio Girardot. 
+      Ha sido remodelado en varias ocasiones, la más importante para el Mundial Sub-20 de la FIFA en 2011. 
+      Es un lugar sagrado para la cultura paisa, donde se celebran no solo triunfos deportivos, 
+      sino también eventos masivos como la inauguración de la Feria de las Flores.
       `,
 
       facts: [
@@ -781,25 +830,27 @@ export class PlacesService {
 
     {
       id: 22,
-      name: 'Unidad Deportiva Atanasio Girardot',
-      lat: 6.255,
-      lng: -75.590,
-      location: 'Estadio',
-      address: 'Cra 74 #48-10, Medellín',
+      name: 'Unidad Deportiva de Belén Andrés Escobar Saldarriaga',
+      lat: 6.2346848,
+      lng: -75.5885154,
+      location: 'Comuna 16 (Belén), Medellín',
+      address: 'Carrera 66B # 31A - 15',
       rating: 4.7,
       image: 'assets/images/unidad.jpg',
 
-      description: 'Complejo deportivo con múltiples escenarios para practicar diferentes disciplinas.',
+      description: 'Espacio multideportivo de acceso público rodeado de una gran zona arbolada. Cuenta con una infraestructura envidiable que incluye una piscina olímpica, canchas de fútbol de césped sintético y natural, canchas de baloncesto, voleibol, bolera pública, pista de arquería y un gimnasio al aire libre.',
       tags: ['Deporte', 'Salud', 'Aire libre'],
 
       accessible: true,
-      openingHours: '10:00 AM - 2:00 AM',
+      openingHours: '6:00 AM - 10:30 PM',
       bestTime: 'Mañana',
       securityLevel: 'Alto',
 
       history: `
-      Este complejo deportivo se ha convertido en uno de los espacios públicos más importantes de Medellín,
-      promoviendo la actividad física y el deporte.
+      Fue nombrada en honor a Andrés Escobar Saldarriaga, el legendario futbolista antioqueño conocido como
+      "El Caballero del Fútbol", tras su fallecimiento en 1994. El complejo ha sido objeto de constantes 
+      renovaciones para mantenerse como uno de los centros deportivos urbanos más modernos de Colombia, 
+      siendo fundamental para la promoción del deporte social y comunitario.
       `,
 
       facts: [
@@ -826,17 +877,19 @@ export class PlacesService {
       rating: 4.6,
       image: 'assets/images/ciclovia.jpg',
 
-      description: 'Evento dominical donde se cierran vías para actividades deportivas.',
+      description: 'Programa que cierra temporalmente el flujo vehicular en importantes avenidas para convertirlas en espacios seguros para correr, montar en bicicleta, patinar o caminar.',
       tags: ['Deporte', 'Aire libre', 'Salud'],
 
       accessible: true,
-      openingHours: '10:00 AM - 2:00 AM',
+      openingHours: '7:00 AM - 1:00 PM',
       bestTime: 'Mañana',
       securityLevel: 'Alto',
 
       history: `
-      La ciclovía es una iniciativa que promueve el uso del espacio público,
-      el deporte y la vida saludable en la ciudad.
+      La ciclovía en Medellín comenzó formalmente en 1984 (celebró sus 40 años recientemente), inspirada en modelos de éxito internacional. 
+      Lo que empezó como un pequeño tramo se convirtió en un eje de transformación social, permitiendo que ciudadanos de todos los estratos 
+      compartan el espacio público. Ha sido fundamental para promover la cultura de la bicicleta en la ciudad, que hoy cuenta con uno de 
+      los sistemas de bicicletas públicas (EnCicla) más importantes de la región.
       `,
 
       facts: [
@@ -855,24 +908,26 @@ export class PlacesService {
     {
       id: 24,
       name: 'Parque Norte',
-      lat: 6.270,
-      lng: -75.565,
+      lat: 6.272007,
+      lng: -75.5660801,
       location: 'Norte',
-      address: 'Cra 53 #76-115, Medellín',
+      address: 'Carrera 53 # 76 - 115',
       rating: 4.5,
       image: 'assets/images/norte.jpg',
 
-      description: 'Parque de atracciones ideal para familias y grupos.',
+      description: 'Parque de diversiones que rodea el lago urbano más grande de la ciudad. Está dividido en cuatro plazoletas temáticas: Extrema, Aventura, Fantasía y Expedición.',
       tags: ['Entretenimiento', 'Familia', 'Turismo'],
 
       accessible: true,
-      openingHours: '10:00 AM - 2:00 AM',
+      openingHours: '10:00 AM - 5:00 PM',
       bestTime: 'Tarde',
       securityLevel: 'Alto',
 
       history: `
-      Parque Norte ha sido uno de los principales centros de entretenimiento
-      para familias en Medellín durante décadas.
+      Inaugurado originalmente en la década de los 70, el Parque Norte ha sido un lugar de recreación tradicional 
+      para las familias paisas. A lo largo de los años ha pasado por varias renovaciones, la más importante a mediados 
+      de los 2000, que modernizó sus atracciones y lo integró al circuito turístico del norte junto al Jardín Botánico 
+      y el Parque Explora. Hoy es administrado por Metroparques.
       `,
 
       facts: [
@@ -881,7 +936,7 @@ export class PlacesService {
         'Ubicación central.'
       ],
 
-      price: '$20.000 - $50.000',
+      price: '$25.000 - $60.000',
 
       comments: [
         { user: 'Carlos', text: 'Muy divertido 🎢' }
@@ -891,24 +946,27 @@ export class PlacesService {
     {
       id: 25,
       name: 'Sky Center',
-      lat: 6.200,
-      lng: -75.570,
-      location: 'Sur',
-      address: 'Cra 48 #18 Sur-200',
+      lat: 6.1859081,
+      lng: -75.5899635,
+      location: 'Itagüí',
+      address: 'Calle 85 # 48 - 01',
       rating: 4.4,
       image: 'assets/images/sky.jpg',
 
-      description: 'Centro de trampolines y actividades extremas.',
+      description: 'Moderno centro de eventos ubicado en el último piso del bloque naranja de la Mayorista. Se caracteriza por ser un "rooftop" (terraza) con una gran capacidad para conciertos, festivales de música electrónica (Techno), reggaetón y eventos corporativos.',
       tags: ['Entretenimiento', 'Deporte'],
 
       accessible: true,
-      openingHours: '10:00 AM - 2:00 AM',
-      bestTime: 'Tarde',
+      openingHours: '8:00 AM - 12:00 AM',
+      bestTime: 'Noche',
       securityLevel: 'Alto',
 
       history: `
-      Sky Center se ha convertido en un espacio moderno de entretenimiento,
-      ideal para liberar energía y divertirse.
+      Sky Center surgió como una respuesta a la necesidad de espacios amplios y con estilo "industrial-chic" 
+      para eventos en el sur del área metropolitana. Al aprovechar la estructura del Bloque Naranja en Itagüí, 
+      logró ofrecer un espacio con capacidad para miles de personas sin alejarse demasiado de la zona central. 
+      Se ha convertido en la sede favorita para festivales como el Medellín Urban Fest y diversas
+      presentaciones de DJs internacionales de Techno y House.
       `,
 
       facts: [
@@ -930,22 +988,25 @@ export class PlacesService {
       name: 'Mirador Las Palmas',
       lat: 6.200,
       lng: -75.550,
-      location: 'Las Palmas',
-      address: 'Vía Las Palmas, Medellín',
-      rating: 4.8,
+      location: 'Vía Las Palmas',
+      address: 'Avenida Las Palmas',
+      rating: 4.3,
       image: 'assets/images/palmas.jpg',
 
-      description: 'Mirador con vista espectacular de Medellín, ideal para planes nocturnos.',
+      description: 'Bahías de descanso ubicadas estratégicamente a un costado de la doble calzada de Las Palmas. Ofrecen una vista panorámica ininterrumpida de toda la ciudad, desde el sur hasta el norte',
       tags: ['Turismo', 'Naturaleza', 'Romántico'],
 
       accessible: true,
-      openingHours: '10:00 AM - 2:00 AM',
+      openingHours: '5:30 PM - 12:00 AM',
       bestTime: 'Noche',
-      securityLevel: 'Alto',
+      securityLevel: 'Medio',
 
       history: `
-      La vía Las Palmas conecta Medellín con el oriente antioqueño,
-      y sus miradores se han convertido en puntos icónicos.
+      Estos miradores han existido de manera informal desde que se construyó la vía Las Palmas, 
+      pero con los años la alcaldía adecuó las bahías con barandas y senderos para formalizarlos 
+      como paradas turísticas. Se han convertido en un símbolo de la cultura local, siendo la "recompensa" 
+      para los ciclistas que entrenan en esta exigente subida y el lugar preferido para las "rumbas de mirador"
+      o simplemente para tomar un chocolate caliente frente a la ciudad.
       `,
 
       facts: [
@@ -964,24 +1025,27 @@ export class PlacesService {
     {
       id: 27,
       name: 'Pueblito Paisa',
-      lat: 6.244,
-      lng: -75.580,
+      lat: 6.2361854,
+      lng: -75.5802909,
       location: 'Cerro Nutibara',
       address: 'Cerro Nutibara, Medellín',
-      rating: 4.7,
+      rating: 4.4,
       image: 'assets/images/pueblito.jpg',
 
-      description: 'Réplica de un pueblo antioqueño tradicional.',
+      description: 'Representación a escala de un típico pueblo antioqueño de comienzos del siglo XX. Cuenta con una plaza empedrada, una fuente, una iglesia, una escuela, una barbería y una botica.',
       tags: ['Cultura', 'Turismo'],
 
       accessible: true,
-      openingHours: '10:00 AM - 2:00 AM',
+      openingHours: '5:00 AM - 11:00 PM',
       bestTime: 'Día',
       securityLevel: 'Alto',
 
       history: `
-      Construido como representación de los pueblos tradicionales,
-      es un símbolo cultural de Antioquia.
+      Fue inaugurado el 3 de marzo de 1978. Fue construido utilizando materiales originales 
+      (puertas, ventanas y techos) de pueblos que quedaron sumergidos bajo el agua durante la 
+      construcción del embalse de Guatapé (como el antiguo Peñol). 
+      Se diseñó para preservar la identidad arquitectónica y las costumbres de los 
+      ancestros paisas en medio de la creciente modernización de Medellín.
       `,
 
       facts: [
@@ -1000,24 +1064,27 @@ export class PlacesService {
     {
       id: 28,
       name: 'Centro Comercial Santafé',
-      lat: 6.196,
-      lng: -75.573,
+      lat: 6.196852,
+      lng: -75.574351,
       location: 'Poblado',
-      address: 'Cra 43A #7 Sur-170',
-      rating: 4.7,
+      address: 'Carrera 43A, Cl. 7 Sur #170',
+      rating: 4.6,
       image: 'assets/images/santafe.jpg',
 
       description: 'Uno de los centros comerciales más grandes de Medellín.',
       tags: ['Compras', 'Entretenimiento'],
 
       accessible: true,
-      openingHours: '10:00 AM - 2:00 AM',
+      openingHours: '10:00 AM - 9:00 PM',
       bestTime: 'Tarde',
-      securityLevel: 'Alto',
+      securityLevel: 'Muy Alto',
 
       history: `
-      Santafé se consolidó como uno de los centros comerciales más importantes
-      de la ciudad.
+      Inaugurado en 2010, se construyó con la visión de ser el corazón del comercio 
+      y la vida social en El Poblado. Su diseño arquitectónico innovador lo ha hecho acreedor 
+      de varios reconocimientos. Se ha convertido en un punto de referencia no solo para compras, 
+      sino como un espacio cultural donde se realizan eventos de moda, arte y 
+      celebraciones tradicionales de la cultura paisa.
       `,
 
       facts: [
@@ -1036,24 +1103,27 @@ export class PlacesService {
     {
       id: 29,
       name: 'Centro Comercial El Tesoro',
-      lat: 6.200,
-      lng: -75.550,
+      lat: 6.1972984,
+      lng: -75.5582293,
       location: 'Poblado',
-      address: 'Cra 25A #1A Sur-45',
+      address: 'Carrera 25A # 1A Sur - 45',
       rating: 4.8,
       image: 'assets/images/tesoro.jpg',
 
-      description: 'Centro comercial con una de las mejores vistas de Medellín.',
+      description: 'Más que un centro comercial, es considerado un "parque comercial" debido a su arquitectura abierta que permite la circulación de aire natural y ofrece vistas espectaculares de la ciudad.',
       tags: ['Compras', 'Turismo'],
 
       accessible: true,
-      openingHours: '10:00 AM - 2:00 AM',
+      openingHours: '10:00 AM - 9:00 PM',
       bestTime: 'Tarde',
-      securityLevel: 'Alto',
+      securityLevel: 'Muy Alto',
 
       history: `
-      El Tesoro se destaca por su ubicación estratégica
-      y su oferta comercial de alto nivel.
+      Inaugurado en 1999, El Tesoro transformó el concepto de centros comerciales en Colombia 
+      al priorizar el paisajismo y el respeto por el entorno montañoso. A lo largo de los años 
+      ha pasado por varias etapas de expansión, añadiendo una torre médica, un hotel (Novotel) y 
+      nuevos bloques comerciales, consolidándose como el destino preferido para el mercado de lujo y 
+      el turismo de salud en la ciudad.
       `,
 
       facts: [
@@ -1072,24 +1142,27 @@ export class PlacesService {
     {
       id: 30,
       name: 'Aeroparque Juan Pablo II',
-      lat: 6.220,
-      lng: -75.590,
+      lat: 6.2200154,
+      lng: -75.5917358,
       location: 'Belén',
-      address: 'Cra 70 #16-04',
-      rating: 4.6,
+      address: 'Carrera 70 # 16 - 04',
+      rating: 4.4,
       image: 'assets/images/aeroparque.jpg',
 
-      description: 'Parque recreativo con piscinas, zonas verdes y actividades familiares.',
+      description: 'Extenso complejo recreativo que combina un parque acuático con múltiples piscinas (incluyendo una de olas y una semiolímpica), toboganes de diferentes niveles y un sendero de 1.6 kilómetros ideal para caminar, correr o montar en bicicleta y patines.',
       tags: ['Naturaleza', 'Familia', 'Aire libre'],
 
       accessible: true,
-      openingHours: '10:00 AM - 2:00 AM',
+      openingHours: '9:30 AM - 5:00 PM',
       bestTime: 'Día',
       securityLevel: 'Alto',
 
       history: `
-      Este parque ha sido un espacio recreativo importante para los habitantes de Medellín,
-      ofreciendo múltiples actividades al aire libre.
+      Fue construido en terrenos que anteriormente formaban parte de la pista del Aeropuerto Olaya Herrera y 
+      fue inaugurado en la década de los 90. Su nombre rinde homenaje a la visita del Papa Juan Pablo II 
+      a Medellín en 1986, quien celebró una misa multitudinaria precisamente en este lugar. 
+      Actualmente es administrado por Metroparques y ha sido renovado para incluir tecnologías más sostenibles 
+      en el tratamiento de sus aguas.
       `,
 
       facts: [
@@ -1098,7 +1171,7 @@ export class PlacesService {
         'Ambiente familiar.'
       ],
 
-      price: '$10.000 - $20.000',
+      price: '$25.000 - $50.000',
 
       comments: [
         { user: 'Camila', text: 'Perfecto para ir en familia 👨‍👩‍👧' }
