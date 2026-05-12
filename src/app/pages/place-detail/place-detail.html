@@ -2,35 +2,78 @@
 
   <!-- 🖼️ HERO -->
   <div class="hero">
-    <img [src]="place.image" alt="">
+
+    <img
+      [src]="place.image"
+      [alt]="place.name">
 
     <div class="hero-overlay">
 
-      <!-- 🏷️ NOMBRE -->
-      <h1 class="title">{{ place.name }}</h1>
+      <!-- 🏷️ HEADER -->
+      <div class="hero-top">
 
-      <!-- 🔽 INFO PRINCIPAL -->
-      <div class="hero-info">
-        <span class="location">📍 {{ place.location }}</span>
+        <div class="hero-main">
 
-        <div class="rating">
-          <span *ngFor="let star of stars">
-            <i [class.filled]="star <= place.rating">★</i>
-          </span>
-          <span>{{ place.rating }}</span>
-        </div>
+          <div class="hero-badge">
+            ✨ Destino recomendado
+          </div>
 
-        <div class="price">
-          💰 {{ place.price || 'Gratis' }}
+          <h1 class="title">
+            {{ place.name }}
+          </h1>
+
+          <p class="subtitle">
+            {{ place.description }}
+          </p>
+
         </div>
 
         <!-- ❤️ -->
-        <button class="fav" (click)="toggleFavorite()">
+        <button
+          class="fav"
+          (click)="toggleFavorite()">
+
           {{ isFavorite ? '❤️' : '🤍' }}
+
         </button>
+
+      </div>
+
+      <!-- 📊 INFO -->
+      <div class="hero-info">
+
+        <div class="info-pill">
+          📍 {{ place.location }}
+        </div>
+
+        <div class="info-pill rating-pill">
+
+          <span
+            *ngFor="let star of stars">
+
+            <i
+              [class.filled]="star <= place.rating">
+
+              ★
+
+            </i>
+
+          </span>
+
+          <span class="score">
+            {{ place.rating }}
+          </span>
+
+        </div>
+
+        <div class="info-pill">
+          💰 {{ place.price || 'Gratis' }}
+        </div>
+
       </div>
 
     </div>
+
   </div>
 
   <!-- 📦 CONTENIDO -->
@@ -38,53 +81,251 @@
 
     <!-- 🏷️ TAGS -->
     <div class="tags">
-      <span *ngFor="let tag of place.tags">{{ tag }}</span>
+
+      <span *ngFor="let tag of place.tags">
+        {{ tag }}
+      </span>
+
     </div>
 
-    <!-- 📊 INFO EXTRA (NUEVO BLOQUE PRO) -->
+    <!-- 📊 INFO EXTRA -->
     <div class="info-grid">
-      <div>📍 <b>Dirección:</b> {{ place.address }}</div>
-      <div>🕒 <b>Horario:</b> {{ place.openingHours }}</div>
-      <div>🌤️ <b>Mejor momento:</b> {{ place.bestTime }}</div>
-      <div>🛡️ <b>Seguridad:</b> {{ place.securityLevel }}</div>
-      <div>♿ <b>Accesible:</b> {{ place.accessible ? 'Sí' : 'No' }}</div>
+
+      <div class="info-card">
+        <span>📍</span>
+
+        <div>
+          <small>Dirección</small>
+          <p>{{ place.address }}</p>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <span>🕒</span>
+
+        <div>
+          <small>Horario</small>
+          <p>{{ place.openingHours }}</p>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <span>🌤️</span>
+
+        <div>
+          <small>Mejor momento</small>
+          <p>{{ place.bestTime }}</p>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <span>🛡️</span>
+
+        <div>
+          <small>Seguridad</small>
+          <p>{{ place.securityLevel }}</p>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <span>♿</span>
+
+        <div>
+          <small>Accesibilidad</small>
+          <p>
+            {{ place.accessible ? 'Sí disponible' : 'No disponible' }}
+          </p>
+        </div>
+      </div>
+
     </div>
 
     <!-- 📝 -->
-    <p class="description">{{ place.description }}</p>
+    <div class="section">
+
+      <h3>Descripción</h3>
+
+      <p class="description">
+        {{ place.description }}
+      </p>
+
+    </div>
 
     <!-- 📜 HISTORIA -->
     <div class="section">
+
       <h3>Historia</h3>
-      <p>{{ place.history }}</p>
+
+      <p class="history">
+        {{ place.history }}
+      </p>
+
     </div>
 
-    <!-- 🤓 DATOS CURIOSOS -->
-    <div class="section" *ngIf="place.facts?.length">
+    <!-- 🤓 DATOS -->
+    <div
+      class="section"
+      *ngIf="place.facts?.length">
+
       <h3>Datos curiosos</h3>
 
       <div class="facts">
-        <div class="fact" *ngFor="let fact of place.facts">
-          {{ fact }}
+
+        <div
+          class="fact"
+          *ngFor="let fact of place.facts">
+
+          ✨ {{ fact }}
+
         </div>
+
       </div>
+
     </div>
 
     <!-- 💬 COMENTARIOS -->
-    <div class="comments" *ngIf="place.comments?.length">
-      <h3>Comentarios</h3>
+    <div class="comments">
 
-      <div class="comment" *ngFor="let c of place.comments">
-        <b>{{ c.user }}</b>
-        <p>{{ c.text }}</p>
+      <!-- HEADER -->
+      <div class="comments-header">
+
+        <div>
+
+          <h3>Comentarios</h3>
+
+          <p>
+            Comparte tu experiencia en este lugar
+          </p>
+
+        </div>
+
+        <button
+          class="primary"
+          (click)="toggleCommentBox()">
+
+          {{
+            showCommentBox
+            ? 'Cerrar'
+            : 'Calificar'
+          }}
+
+        </button>
+
       </div>
+
+      <!-- ✍️ FORM -->
+      <div
+        class="comment-form"
+        *ngIf="showCommentBox">
+
+        <div class="form-top">
+
+          <h4>
+            ¿Cómo fue tu experiencia?
+          </h4>
+
+          <div class="rating-select">
+
+            <span
+              *ngFor="let star of stars"
+              (click)="setRating(star)">
+
+              <i
+                [class.filled]="star <= selectedRating">
+
+                ★
+
+              </i>
+
+            </span>
+
+          </div>
+
+        </div>
+
+        <textarea
+
+          [(ngModel)]="newComment"
+
+          placeholder="Escribe qué te gustó, recomendaciones, ambiente, precios, seguridad..."
+
+        ></textarea>
+
+        <button
+          class="primary publish-btn"
+          (click)="submitComment()">
+
+          Publicar comentario
+
+        </button>
+
+      </div>
+
+      <!-- 🧾 LISTA -->
+      <div
+        class="comment-card"
+        *ngFor="let c of comments">
+
+        <div class="comment-user">
+
+          <div class="avatar">
+            {{ c.user[0] }}
+          </div>
+
+          <div>
+
+            <b>{{ c.user }}</b>
+
+            <div class="comment-stars">
+
+              <span
+                *ngFor="let star of stars">
+
+                <i
+                  [class.filled]="star <= c.rating">
+
+                  ★
+
+                </i>
+
+              </span>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <p class="comment-text">
+          {{ c.text }}
+        </p>
+
+        <small>
+
+          {{
+            c.createdAt?.toDate
+              ? (
+                  c.createdAt.toDate()
+                  | date:'medium'
+                )
+              : 'Ahora'
+          }}
+
+        </small>
+
+      </div>
+
     </div>
 
     <!-- 🔘 -->
     <div class="actions">
-      <button routerLink="/">Volver</button>
-      <button class="primary">Calificar</button>
+
+      <button routerLink="/">
+        Volver
+      </button>
+
     </div>
 
   </div>
+
 </div>
