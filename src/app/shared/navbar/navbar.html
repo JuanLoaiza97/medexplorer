@@ -6,26 +6,34 @@
 
   <ul class="menu">
 
-    <li class="link" routerLink="/">Inicio</li>
+    <li class="link" routerLink="/">
+      Inicio
+    </li>
 
-    <!-- PERFIL CLICKABLE -->
-    <li class="link profile"
-        *ngIf="user$ | async as user"
-        routerLink="/profile">
-
-      Hola, {{ user?.name || user?.email }}
-
+    <!-- USUARIO -->
+    <li
+      class="link profile"
+      *ngIf="user$ | async as user"
+      routerLink="/profile"
+    >
+      Hola, {{ $any(user).name || user.email }}
     </li>
 
     <!-- LOGIN -->
-    <li class="login-btn" *ngIf="!(user$ | async)" routerLink="/login">
+    <li
+      class="login-btn"
+      *ngIf="!(user$ | async)"
+      routerLink="/login"
+    >
       Login
     </li>
 
     <!-- LOGOUT -->
-    <li class="login-btn logout"
-        *ngIf="user$ | async"
-        (click)="logout()">
+    <li
+      class="login-btn logout"
+      *ngIf="user$ | async"
+      (click)="logout()"
+    >
       Cerrar sesión
     </li>
 

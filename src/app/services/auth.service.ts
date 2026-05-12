@@ -1,77 +1,248 @@
+// import { Injectable, inject } from '@angular/core';
+// import {
+//   Auth,
+//   signInWithEmailAndPassword,
+//   createUserWithEmailAndPassword,
+//   signOut,
+//   authState
+// } from '@angular/fire/auth';
+
+// import { Firestore, doc, getDoc, setDoc } from '@angular/fire/firestore';
+// import { BehaviorSubject } from 'rxjs';
+
+// @Injectable({
+//   providedIn: 'root'
+// })
+// export class AuthService {
+
+//   private auth = inject(Auth);
+//   private firestore = inject(Firestore);
+
+//   private userSubject = new BehaviorSubject<any>(null);
+//   user$ = this.userSubject.asObservable();
+
+//   constructor() {
+//     this.initAuthListener();
+//   }
+
+//   private initAuthListener() {
+
+//     authState(this.auth).subscribe(async (userAuth) => {
+
+//       if (!userAuth) {
+//         this.userSubject.next(null);
+//         return;
+//       }
+
+//       const ref = doc(this.firestore, `users/${userAuth.uid}`);
+//       const snap = await getDoc(ref);
+
+//       this.userSubject.next({
+//         uid: userAuth.uid,
+//         email: userAuth.email,
+//         ...(snap.exists() ? snap.data() : {})
+//       });
+
+//     });
+//   }
+
+//   login(email: string, password: string) {
+//     return signInWithEmailAndPassword(this.auth, email, password);
+//   }
+
+//   async register(email: string, password: string, extraData: any = {}) {
+
+//     const credential = await createUserWithEmailAndPassword(
+//       this.auth,
+//       email,
+//       password
+//     );
+
+//     const uid = credential.user.uid;
+
+//     await setDoc(doc(this.firestore, `users/${uid}`), {
+//       email,
+//       createdAt: new Date(),
+//       ...extraData
+//     });
+
+//     return credential;
+//   }
+
+//   logout() {
+//     return signOut(this.auth).then(() => {
+//       this.userSubject.next(null);
+//     });
+//   }
+// }
+
 import { Injectable, inject } from '@angular/core';
+
 import {
   Auth,
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
   signOut,
-  authState
+  user,
+  User
 } from '@angular/fire/auth';
 
-import { Firestore, doc, getDoc, setDoc } from '@angular/fire/firestore';
-import { BehaviorSubject } from 'rxjs';
+import {
+  Firestore,
+  doc,
+  getDoc,
+  setDoc,
+  serverTimestamp
+} from '@angular/fire/firestore';
+
+import {
+  BehaviorSubject
+} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  private auth = inject(Auth);
-  private firestore = inject(Firestore);
+  private auth =
+    inject(Auth);
 
-  private userSubject = new BehaviorSubject<any>(null);
-  user$ = this.userSubject.asObservable();
+  private firestore =
+    inject(Firestore);
+
+  private userSubject =
+    new BehaviorSubject<any>(null);
+
+  user$ =
+    this.userSubject.asObservable();
 
   constructor() {
+
     this.initAuthListener();
   }
 
+  // ✅ LISTENER AUTH
   private initAuthListener() {
 
-    authState(this.auth).subscribe(async (userAuth) => {
+    user(this.auth)
+      .subscribe(async (
+        firebaseUser: User | null
+      ) => {
 
-      if (!userAuth) {
-        this.userSubject.next(null);
-        return;
-      }
+        console.log(
+          'AUTH STATE:',
+          firebaseUser
+        );
 
-      const ref = doc(this.firestore, `users/${userAuth.uid}`);
-      const snap = await getDoc(ref);
+        // ❌ NO USER
+        if (!firebaseUser) {
 
-      this.userSubject.next({
-        uid: userAuth.uid,
-        email: userAuth.email,
-        ...(snap.exists() ? snap.data() : {})
+          this.userSubject.next(null);
+          return;
+        }
+
+        try {
+
+          const ref = doc(
+            this.firestore,
+            `users/${firebaseUser.uid}`
+          );
+
+          const snap =
+            await getDoc(ref);
+
+          const firestoreData =
+            snap.exists()
+              ? snap.data()
+              : {};
+
+          const finalUser = {
+            uid: firebaseUser.uid,
+            email: firebaseUser.email,
+            ...firestoreData
+          };
+
+          console.log(
+            '✅ USER FIRESTORE:',
+            finalUser
+          );
+
+          this.userSubject.next(
+            finalUser
+          );
+
+        } catch(error) {
+
+          console.error(
+            '🔥 ERROR AUTH:',
+            error
+          );
+
+          this.userSubject.next({
+            uid: firebaseUser.uid,
+            email: firebaseUser.email
+          });
+        }
       });
-
-    });
   }
 
-  login(email: string, password: string) {
-    return signInWithEmailAndPassword(this.auth, email, password);
-  }
+  // ✅ LOGIN
+  login(
+    email: string,
+    password: string
+  ) {
 
-  async register(email: string, password: string, extraData: any = {}) {
-
-    const credential = await createUserWithEmailAndPassword(
+    return signInWithEmailAndPassword(
       this.auth,
       email,
       password
     );
+  }
 
-    const uid = credential.user.uid;
+  // ✅ REGISTER
+  async register(
+    email: string,
+    password: string,
+    extraData: any = {}
+  ) {
 
-    await setDoc(doc(this.firestore, `users/${uid}`), {
-      email,
-      createdAt: new Date(),
-      ...extraData
-    });
+    const credential =
+      await createUserWithEmailAndPassword(
+        this.auth,
+        email,
+        password
+      );
+
+    const uid =
+      credential.user.uid;
+
+    await setDoc(
+      doc(this.firestore, `users/${uid}`),
+      {
+        email,
+        visitedPlaces: [],
+        comments: [],
+        favorites: [],
+        createdAt: serverTimestamp(),
+        ...extraData
+      },
+      {
+        merge: true
+      }
+    );
 
     return credential;
   }
 
+  // ✅ LOGOUT
   logout() {
-    return signOut(this.auth).then(() => {
-      this.userSubject.next(null);
-    });
+
+    return signOut(this.auth);
+  }
+
+  // ✅ USER ACTUAL
+  getCurrentUser() {
+
+    return this.userSubject.value;
   }
 }

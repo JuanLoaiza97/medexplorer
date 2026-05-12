@@ -4,12 +4,12 @@
 
   <div class="profile-header" *ngIf="user">
 
-    <h1>Bienvenido a tu estación, {{ user.name }}</h1>
+    <h1>Bienvenido a tu estación, {{ user.name || user.username || 'Usuario' }}</h1>
 
     <p class="email">{{ user.email }}</p>
 
     <div class="tags">
-      <span *ngFor="let i of user.interests">{{ i }}</span>
+      <span *ngFor="let i of (user.interests || [])">{{ i }}</span>
     </div>
 
   </div>
@@ -24,7 +24,7 @@
     <section>
       <h2>🎯 Tus intereses</h2>
       <div class="card-list">
-        <div class="card" *ngFor="let i of user.interests">
+        <div class="card" *ngFor="let i of (user.interests || [])">
           {{ i }}
         </div>
       </div>
