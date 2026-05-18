@@ -6,5 +6,7 @@ export const environment = {
     storageBucket: "medexplorer-893b4.firebasestorage.app",
     messagingSenderId: "836802950887",
     appId: "1:836802950887:web:bec8ed812104137f385442"
-  }
+  },
+    openRouteApiKey:
+    'eyJvcmciOiI1YjNjZTM1OTc4NTExMTAwMDFjZjYyNDgiLCJpZCI6IjdjMmYxNTg5ZDUxYTQ2ODZiN2FlMjc0NWEyMzI3NGZmIiwiaCI6Im11cm11cjY0In0='
 };

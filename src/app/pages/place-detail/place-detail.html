@@ -1,4 +1,4 @@
-<div class="detail" *ngIf="place$ | async as place">
+<div class="detail" *ngIf="currentPlace as place">
 
   <!-- 🖼️ HERO -->
   <div class="hero">
@@ -61,7 +61,10 @@
           </span>
 
           <span class="score">
-            {{ place.rating }}
+            {{
+              averageRating || place.rating
+            }}
+            ({{ reviewsCount }})
           </span>
 
         </div>
@@ -252,8 +255,9 @@
         ></textarea>
 
         <button
+          type="button"
           class="primary publish-btn"
-          (click)="submitComment()">
+          (click)="submitComment($event)">
 
           Publicar comentario
 
@@ -264,7 +268,7 @@
       <!-- 🧾 LISTA -->
       <div
         class="comment-card"
-        *ngFor="let c of comments">
+        *ngFor="let c of comments; trackBy: trackComment">
 
         <div class="comment-user">
 

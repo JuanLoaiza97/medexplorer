@@ -1,0 +1,62 @@
+<div class="route-page">
+
+  <!-- MAPA -->
+  <div id="route-map"></div>
+
+  <!-- PANEL -->
+  <div class="route-panel">
+
+    <h2>
+      🗺️ {{ currentPlace?.name }}
+    </h2>
+
+    <div class="stats">
+
+      <div class="stat-card">
+        📏 {{ distance }}
+      </div>
+
+      <div class="stat-card">
+        ⏱️ {{ duration }}
+      </div>
+
+    </div>
+
+    <!-- MODOS -->
+    <div class="modes">
+
+      <button
+        (click)="changeMode('foot-walking')">
+
+        🚶 Caminar
+
+      </button>
+
+      <button
+        (click)="changeMode('driving-car')">
+
+        🚗 Carro
+
+      </button>
+
+      <button
+        (click)="changeMode('cycling-regular')">
+
+        🏍️ Moto
+
+      </button>
+
+    </div>
+
+    <!-- GOOGLE -->
+    <button
+      class="google-btn"
+      (click)="openGoogleMaps()">
+
+      Abrir en Google Maps
+
+    </button>
+
+  </div>
+
+</div>

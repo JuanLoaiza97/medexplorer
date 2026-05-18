@@ -1,29 +1,77 @@
 <div class="panel" *ngIf="place$ | async as place">
-  <img [src]="place.image" alt="Lugar" />
+
+  <img
+    [src]="place.image"
+    alt="Lugar" />
 
   <div class="content">
 
-  <h2>{{ place.name }}</h2>
-  <p>📍 {{ place.location }}</p>
+    <h2>
+      {{ place.name }}
+    </h2>
 
-  <div class="rating">
-    <span *ngFor="let star of stars">
-      <i [class.filled]="star <= place.rating">★</i>
-    </span>
-    <span class="score">{{ place.rating }}</span>
-  </div>
+    <p>
+      📍 {{ place.location }}
+    </p>
 
-  <p class="description">
-    {{ place.description }}
-  </p>
+    <div class="rating">
 
-  <div class="buttons">
-    <button class="primary" routerLink="/place">
-      Conoce más
-    </button>
-    <button class="fav" (click)="toggleFavorite()">
-      {{ isFavorite ? '❤️ Guardado' : '🤍 Guardar' }}
-    </button>
+      <span *ngFor="let star of stars">
+
+        <i
+          [class.filled]="star <= place.rating">
+
+          ★
+
+        </i>
+
+      </span>
+
+      <span class="score">
+        {{ place.rating }}
+      </span>
+
+    </div>
+
+    <p class="description">
+      {{ place.description }}
+    </p>
+
+    <div class="buttons">
+
+      <!-- DETALLE -->
+      <button
+        class="primary"
+        routerLink="/place">
+
+        Conoce más
+
+      </button>
+
+      <!-- GPS -->
+      <button
+        class="route-btn"
+        routerLink="/route">
+
+        🗺️ ¡Vamos!
+
+      </button>
+
+      <!-- FAVORITO -->
+      <button
+        class="fav"
+        (click)="toggleFavorite()">
+
+        {{
+          isFavorite
+          ? '❤️ Guardado'
+          : '🤍 Guardar'
+        }}
+
+      </button>
+
+    </div>
+
   </div>
 
 </div>

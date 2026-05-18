@@ -1,179 +1,9 @@
-// import {
-//   Component,
-//   inject,
-//   ChangeDetectorRef
-// } from '@angular/core';
-
-// import {
-//   CommonModule
-// } from '@angular/common';
-
-// import {
-//   FormsModule
-// } from '@angular/forms';
-
-// import {
-//   RouterModule
-// } from '@angular/router';
-
-// import {
-//   PlaceService
-// } from '../../services/place';
-
-// import {
-//   FavoritesService
-// } from '../../services/favorites.service';
-
-// @Component({
-//   selector: 'app-place-detail',
-//   standalone: true,
-//   imports: [
-//     CommonModule,
-//     RouterModule,
-//     FormsModule
-//   ],
-//   templateUrl: './place-detail.html',
-//   styleUrl: './place-detail.scss'
-// })
-// export class PlaceDetailComponent {
-
-//   private placeService =
-//     inject(PlaceService);
-
-//   private favoritesService =
-//     inject(FavoritesService);
-
-//   private cdr =
-//     inject(ChangeDetectorRef);
-
-//   place$ =
-//     this.placeService.place$;
-
-//   stars = [1,2,3,4,5];
-
-//   currentPlace: any = null;
-
-//   isFavorite = false;
-
-//   // ✅ NUEVO
-//   showCommentBox = false;
-
-//   newComment = '';
-
-//   selectedRating = 0;
-
-//   constructor() {
-
-//     // ✅ PLACE
-//     this.place$.subscribe((place) => {
-
-//       this.currentPlace = place;
-
-//       this.updateFavoriteState();
-//     });
-
-//     // ✅ FAVORITOS
-//     this.favoritesService.favorites$
-//       .subscribe(() => {
-
-//         this.updateFavoriteState();
-//       });
-//   }
-
-//   // ✅ FAVORITO
-//   updateFavoriteState() {
-
-//     if (!this.currentPlace) {
-
-//       this.isFavorite = false;
-
-//       this.cdr.detectChanges();
-
-//       return;
-//     }
-
-//     const placeId =
-//       this.currentPlace.id ||
-//       this.currentPlace.placeId ||
-//       this.currentPlace.fsq_id;
-
-//     this.isFavorite =
-//       this.favoritesService.isFavorite(
-//         placeId
-//       );
-
-//     this.cdr.detectChanges();
-//   }
-
-//   // ✅ TOGGLE FAVORITO
-//   async toggleFavorite() {
-
-//     if (!this.currentPlace) return;
-
-//     await this.favoritesService.toggleFavorite(
-//       this.currentPlace
-//     );
-
-//     this.updateFavoriteState();
-//   }
-
-//   // ✅ MOSTRAR FORMULARIO
-//   toggleCommentBox() {
-
-//     this.showCommentBox =
-//       !this.showCommentBox;
-//   }
-
-//   // ✅ SELECCIONAR ESTRELLAS
-//   setRating(star: number) {
-
-//     this.selectedRating = star;
-//   }
-
-//   // ✅ PUBLICAR COMENTARIO
-//   submitComment() {
-
-//     if (
-//       !this.newComment.trim() ||
-//       this.selectedRating === 0
-//     ) {
-//       return;
-//     }
-
-//     // 🔥 SI NO EXISTE ARRAY
-//     if (!this.currentPlace.comments) {
-
-//       this.currentPlace.comments = [];
-//     }
-
-//     // ✅ AGREGAR COMENTARIO
-//     this.currentPlace.comments.unshift({
-
-//       user: 'Tú',
-
-//       text: this.newComment,
-
-//       rating: this.selectedRating,
-
-//       date: new Date()
-//         .toLocaleDateString()
-//     });
-
-//     // ✅ LIMPIAR
-//     this.newComment = '';
-
-//     this.selectedRating = 0;
-
-//     this.showCommentBox = false;
-
-//     this.cdr.detectChanges();
-//   }
-// }
-
-
 import {
   Component,
-  inject
+  inject,
+  OnInit,
+  OnDestroy,
+  ChangeDetectorRef
 } from '@angular/core';
 
 import {
@@ -187,6 +17,10 @@ import {
 import {
   RouterModule
 } from '@angular/router';
+
+import {
+  Subscription
+} from 'rxjs';
 
 import {
   PlaceService
@@ -215,9 +49,13 @@ import {
   templateUrl: './place-detail.html',
   styleUrl: './place-detail.scss'
 })
-export class PlaceDetailComponent {
+export class PlaceDetailComponent
+implements OnInit, OnDestroy {
 
+  // =========================================
   // ✅ SERVICES
+  // =========================================
+
   private placeService =
     inject(PlaceService);
 
@@ -230,19 +68,35 @@ export class PlaceDetailComponent {
   private authService =
     inject(AuthService);
 
+  private cdr =
+    inject(ChangeDetectorRef);
+
+  // =========================================
   // ✅ PLACE
+  // =========================================
+
   place$ =
     this.placeService.place$;
 
-  stars = [1,2,3,4,5];
-
   currentPlace: any = null;
 
+  stars = [1,2,3,4,5];
+
+  // =========================================
   // ✅ FAVORITOS
+  // =========================================
+
   isFavorite = false;
 
+  // =========================================
   // ✅ COMMENTS
+  // =========================================
+
   comments: any[] = [];
+
+  averageRating = 0;
+
+  reviewsCount = 0;
 
   showCommentBox = false;
 
@@ -250,23 +104,37 @@ export class PlaceDetailComponent {
 
   selectedRating = 0;
 
-  constructor() {
+  private commentsSub?: Subscription;
 
-    // ✅ PLACE
-    this.place$.subscribe((place) => {
+  private placeSub?: Subscription;
 
-      this.currentPlace = place;
+  // =========================================
+  // ✅ INIT
+  // =========================================
 
-      this.updateFavoriteState();
+  ngOnInit() {
 
-      this.loadComments();
-    });
+    this.placeSub =
+      this.place$
+        .subscribe((place) => {
 
-    // ✅ FAVORITOS
+          if (!place) return;
+
+          this.currentPlace = place;
+
+          this.updateFavoriteState();
+
+          this.loadComments();
+
+          this.cdr.detectChanges();
+        });
+
     this.favoritesService.favorites$
       .subscribe(() => {
 
         this.updateFavoriteState();
+
+        this.cdr.detectChanges();
       });
   }
 
@@ -302,6 +170,8 @@ export class PlaceDetailComponent {
     );
 
     this.updateFavoriteState();
+
+    this.cdr.detectChanges();
   }
 
   // =========================================
@@ -319,28 +189,68 @@ export class PlaceDetailComponent {
     this.selectedRating = star;
   }
 
-  // ✅ CARGAR COMMENTS
+  // =========================================
+  // ✅ LOAD COMMENTS
+  // =========================================
+
   loadComments() {
 
     if (!this.currentPlace) return;
 
+    this.commentsSub?.unsubscribe();
+
     const placeId =
-      this.currentPlace.id ||
-      this.currentPlace.placeId ||
-      this.currentPlace.fsq_id;
+      String(
+        this.currentPlace.id ||
+        this.currentPlace.placeId ||
+        this.currentPlace.fsq_id
+      );
 
-    this.commentsService
-      .getComments(placeId)
-      .subscribe((comments) => {
+    this.commentsSub =
+      this.commentsService
+        .getComments(placeId)
+        .subscribe((comments) => {
 
-        this.comments = comments;
-      });
+          this.comments = [...comments];
+
+          // ✅ TOTAL REVIEWS
+          this.reviewsCount =
+            comments.length;
+
+          // ✅ PROMEDIO
+          this.averageRating =
+            this.commentsService
+              .calculateAverageRating(
+                comments
+              );
+
+          // ✅ ACTUALIZAR PLACE
+          this.currentPlace.rating =
+            this.averageRating ||
+            this.currentPlace.rating;
+
+          this.cdr.detectChanges();
+
+          console.log(
+            '⭐ PROMEDIO:',
+            this.averageRating
+          );
+
+        });
   }
 
+  // =========================================
   // ✅ PUBLICAR COMMENT
-  async submitComment() {
+  // =========================================
 
-    // ✅ VALIDACIONES
+  async submitComment(
+    event?: Event
+  ) {
+
+    event?.preventDefault();
+
+    event?.stopPropagation();
+
     if (
       !this.newComment.trim() ||
       this.selectedRating === 0
@@ -348,45 +258,93 @@ export class PlaceDetailComponent {
       return;
     }
 
-    // ✅ USER
     const user =
       this.authService.getCurrentUser();
 
     if (!user) {
 
-      alert('Debes iniciar sesión');
+      alert(
+        'Debes iniciar sesión'
+      );
+
       return;
     }
 
-    // ✅ PLACE ID
     const placeId =
-      this.currentPlace.id ||
-      this.currentPlace.placeId ||
-      this.currentPlace.fsq_id;
+      String(
+        this.currentPlace.id ||
+        this.currentPlace.placeId ||
+        this.currentPlace.fsq_id
+      );
 
-    // ✅ GUARDAR FIREBASE
-    await this.commentsService.addComment({
+    try {
 
-      placeId,
+      await this.commentsService.addComment({
 
-      userId: user.uid,
+        placeId,
 
-      user: user.name || user.email,
+        userId:
+          user.uid,
 
-      text: this.newComment,
+        user:
+          user.name ||
+          user.email,
 
-      rating: this.selectedRating,
+        text:
+          this.newComment,
 
-      placeName: this.currentPlace.name,
+        rating:
+          this.selectedRating,
 
-      placeImage: this.currentPlace.image
-    });
+        placeName:
+          this.currentPlace.name,
 
-    // ✅ LIMPIAR
-    this.newComment = '';
+        placeImage:
+          this.currentPlace.image
+      });
 
-    this.selectedRating = 0;
+      // ✅ LIMPIAR
+      this.newComment = '';
 
-    this.showCommentBox = false;
+      this.selectedRating = 0;
+
+      this.showCommentBox = false;
+
+      // 🔥 REFRESH UI
+      this.cdr.detectChanges();
+
+      console.log(
+        '✅ COMMENT PUBLICADO'
+      );
+
+    } catch(error) {
+
+      console.error(
+        '🔥 ERROR COMMENT:',
+        error
+      );
+    }
+  }
+
+  // =========================================
+  // ✅ TRACK
+  // =========================================
+
+  trackComment(
+    index: number,
+    comment: any
+  ) {
+    return comment.id;
+  }
+
+  // =========================================
+  // ✅ DESTROY
+  // =========================================
+
+  ngOnDestroy(): void {
+
+    this.commentsSub?.unsubscribe();
+
+    this.placeSub?.unsubscribe();
   }
 }

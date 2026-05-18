@@ -10,7 +10,8 @@ import {
   collectionData,
   query,
   where,
-  orderBy
+  orderBy,
+  serverTimestamp
 } from '@angular/fire/firestore';
 
 import {
@@ -25,8 +26,13 @@ export class CommentsService {
   private firestore =
     inject(Firestore);
 
-  // ✅ OBTENER COMMENTS
-  getComments(placeId: number | string): Observable<any[]> {
+  // =========================================
+  // ✅ GET COMMENTS
+  // =========================================
+
+  getComments(
+    placeId: number | string
+  ): Observable<any[]> {
 
     const commentsRef =
       collection(
@@ -35,9 +41,19 @@ export class CommentsService {
       );
 
     const q = query(
+
       commentsRef,
-      where('placeId', '==', placeId),
-      orderBy('createdAt', 'desc')
+
+      where(
+        'placeId',
+        '==',
+        String(placeId)
+      ),
+
+      orderBy(
+        'createdAt',
+        'desc'
+      )
     );
 
     return collectionData(
@@ -48,7 +64,10 @@ export class CommentsService {
     ) as Observable<any[]>;
   }
 
-  // ✅ AGREGAR COMMENT
+  // =========================================
+  // ✅ ADD COMMENT
+  // =========================================
+
   async addComment(comment: any) {
 
     const commentsRef =
@@ -57,12 +76,53 @@ export class CommentsService {
         'comments'
       );
 
-    return addDoc(
+    return await addDoc(
       commentsRef,
       {
         ...comment,
-        createdAt: new Date()
+
+        placeId:
+          String(comment.placeId),
+
+        createdAt:
+          serverTimestamp()
       }
+    );
+  }
+
+  // =========================================
+  // ✅ CALCULAR PROMEDIO
+  // =========================================
+
+  calculateAverageRating(
+    comments: any[]
+  ): number {
+
+    if (!comments.length) {
+
+      return 0;
+    }
+
+    const total =
+      comments.reduce(
+        (
+          acc,
+          comment
+        ) => {
+
+          return (
+            acc +
+            Number(comment.rating || 0)
+          );
+
+        },
+        0
+      );
+
+    return Number(
+      (
+        total / comments.length
+      ).toFixed(1)
     );
   }
 }

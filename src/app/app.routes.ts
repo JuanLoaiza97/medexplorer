@@ -4,6 +4,7 @@ import { LoginComponent } from './pages/login/login';
 import { RegisterComponent } from './pages/register/register';
 import { PlaceDetailComponent } from './pages/place-detail/place-detail';
 import { ProfileComponent } from './pages/profile/profile';
+import { RouteComponent } from './pages/route/route';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -11,5 +12,6 @@ export const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'place', component: PlaceDetailComponent },
   { path: 'profile', component: ProfileComponent }, // ⭐ NUEVO
+  { path: 'route', component: RouteComponent }, // ⭐ NUEVO
   { path: '**', redirectTo: '' }
 ];
