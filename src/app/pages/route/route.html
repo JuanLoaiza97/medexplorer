@@ -26,6 +26,8 @@
     <div class="modes">
 
       <button
+        [class.active]="travelMode === 'foot-walking'"
+        [disabled]="loading"
         (click)="changeMode('foot-walking')">
 
         🚶 Caminar
@@ -33,6 +35,8 @@
       </button>
 
       <button
+        [class.active]="travelMode === 'driving-car'"
+        [disabled]="loading"
         (click)="changeMode('driving-car')">
 
         🚗 Carro
@@ -40,11 +44,22 @@
       </button>
 
       <button
+        [class.active]="travelMode === 'cycling-regular'"
+        [disabled]="loading"
         (click)="changeMode('cycling-regular')">
 
         🏍️ Moto
 
       </button>
+
+    </div>
+
+    <!-- LOADING -->
+    <div
+      class="loading"
+      *ngIf="loading">
+
+      Calculando ruta...
 
     </div>
 

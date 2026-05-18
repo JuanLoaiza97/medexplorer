@@ -1,77 +1,255 @@
 <app-navbar></app-navbar>
 
-<div class="profile-container">
+<div class="profile-page">
 
-  <div class="profile-header" *ngIf="user">
+  <!-- HERO -->
+  <div
+    class="profile-hero"
+    *ngIf="user">
 
-    <h1>Bienvenido a tu estación, {{ user.name || user.username || 'Usuario' }}</h1>
+    <div class="overlay"></div>
 
-    <p class="email">{{ user.email }}</p>
+    <div class="hero-content">
 
-    <div class="tags">
-      <span *ngFor="let i of (user.interests || [])">{{ i }}</span>
+      <div class="avatar">
+
+        {{
+          (
+            user.name ||
+            user.email ||
+            'U'
+          )[0]
+        }}
+
+      </div>
+
+      <div>
+
+        <h1>
+          Bienvenido,
+          {{
+            user.name ||
+            user.username ||
+            'Explorador'
+          }}
+        </h1>
+
+        <p>
+          {{ user.email }}
+        </p>
+
+      </div>
+
     </div>
 
   </div>
 
-  <div *ngIf="loading" class="loading">
+  <!-- LOADING -->
+  <div
+    class="loading"
+    *ngIf="loading">
+
     Cargando perfil...
+
   </div>
 
-  <div class="profile-content" *ngIf="!loading && user">
+  <!-- CONTENT -->
+  <div
+    class="profile-content"
+    *ngIf="!loading && user">
+
+    <!-- STATS -->
+    <div class="stats-grid">
+
+      <div class="stat-card">
+
+        <h3>
+          ⭐ Favoritos
+        </h3>
+
+        <span>
+          {{ favoritePlaces.length }}
+        </span>
+
+      </div>
+
+      <div class="stat-card">
+
+        <h3>
+          📍 Visitados
+        </h3>
+
+        <span>
+          {{ visitedPlaces.length }}
+        </span>
+
+      </div>
+
+      <div class="stat-card">
+
+        <h3>
+          💬 Comentarios
+        </h3>
+
+        <span>
+          {{ comments.length }}
+        </span>
+
+      </div>
+
+    </div>
 
     <!-- INTERESES -->
     <section>
-      <h2>🎯 Tus intereses</h2>
-      <div class="card-list">
-        <div class="card" *ngFor="let i of (user.interests || [])">
-          {{ i }}
-        </div>
+
+      <div class="section-title">
+        🎯 Tus intereses
       </div>
+
+      <div class="tags">
+
+        <span
+          *ngFor="let i of user.interests">
+
+          {{ i }}
+
+        </span>
+
+      </div>
+
     </section>
 
     <!-- FAVORITOS -->
     <section>
-      <h2>⭐ Lugares favoritos</h2>
 
-      <div class="empty" *ngIf="favoritePlaces.length === 0">
-        Aún no tienes favoritos
+      <div class="section-title">
+        ⭐ Favoritos
       </div>
 
-      <div class="card-list">
-        <div class="card" *ngFor="let p of favoritePlaces">
-          {{ p.name }}
+      <div
+        class="empty"
+        *ngIf="favoritePlaces.length === 0">
+
+        No tienes favoritos aún
+
+      </div>
+
+      <div class="places-grid">
+
+        <div
+          class="place-card"
+          *ngFor="let p of favoritePlaces">
+
+          <img
+            [src]="p.image || 'https://placehold.co/600x400?text=MedExplorer'"
+            alt="Lugar">
+
+          <div class="place-info">
+
+            <h3>
+              {{ p.name }}
+            </h3>
+
+            <p>
+              📍 {{ p.location }}
+            </p>
+
+          </div>
+
         </div>
+
       </div>
+
     </section>
 
     <!-- VISITADOS -->
     <section>
-      <h2>📍 Lugares visitados</h2>
 
-      <div class="empty" *ngIf="visitedPlaces.length === 0">
+      <div class="section-title">
+        📍 Lugares visitados
+      </div>
+
+      <div
+        class="empty"
+        *ngIf="visitedPlaces.length === 0">
+
         Aún no has visitado lugares
+
       </div>
 
-      <div class="card-list">
-        <div class="card" *ngFor="let p of visitedPlaces">
-          {{ p.name }}
+      <div class="places-grid">
+
+        <div
+          class="place-card"
+          *ngFor="let p of visitedPlaces">
+
+          <img
+            [src]="p.image"
+            alt="Lugar">
+
+          <div class="place-info">
+
+            <h3>
+              {{ p.name }}
+            </h3>
+
+            <p>
+              📍 {{ p.location }}
+            </p>
+
+          </div>
+
         </div>
+
       </div>
+
     </section>
 
-    <!-- COMENTARIOS -->
+    <!-- COMMENTS -->
     <section>
-      <h2>💬 Tus comentarios</h2>
 
-      <div class="empty" *ngIf="comments.length === 0">
-        Aún no has hecho comentarios
+      <div class="section-title">
+        💬 Tus comentarios
       </div>
 
-      <div class="comment" *ngFor="let c of comments">
-        <p>{{ c.text }}</p>
-        <small>{{ c.place }}</small>
+      <div
+        class="empty"
+        *ngIf="comments.length === 0">
+
+        No has hecho comentarios aún
+
       </div>
+
+      <div
+        class="comment-card"
+        *ngFor="let c of comments">
+
+        <img
+          [src]="c.placeImage || 'https://placehold.co/600x400?text=Comentario'"
+          alt="Lugar">
+
+        <div class="comment-content">
+
+          <div class="comment-top">
+
+            <h3>
+              {{ c.place }}
+            </h3>
+
+            <span>
+              ⭐ {{ c.rating }}/5
+            </span>
+
+          </div>
+
+          <p>
+            {{ c.text }}
+          </p>
+
+        </div>
+
+      </div>
+
     </section>
 
   </div>
