@@ -1,4 +1,3 @@
-
 import { Injectable, inject } from '@angular/core';
 
 import {
@@ -7,7 +6,8 @@ import {
   createUserWithEmailAndPassword,
   signOut,
   user,
-  User
+  User,
+  sendPasswordResetEmail
 } from '@angular/fire/auth';
 
 import {
@@ -44,7 +44,10 @@ export class AuthService {
     this.initAuthListener();
   }
 
-  // ✅ LISTENER AUTH
+  // =========================================
+  // AUTH LISTENER
+  // =========================================
+
   private initAuthListener() {
 
     user(this.auth)
@@ -52,12 +55,6 @@ export class AuthService {
         firebaseUser: User | null
       ) => {
 
-        console.log(
-          'AUTH STATE:',
-          firebaseUser
-        );
-
-        // ❌ NO USER
         if (!firebaseUser) {
 
           this.userSubject.next(null);
@@ -80,15 +77,15 @@ export class AuthService {
               : {};
 
           const finalUser = {
-            uid: firebaseUser.uid,
-            email: firebaseUser.email,
+
+            uid:
+              firebaseUser.uid,
+
+            email:
+              firebaseUser.email,
+
             ...firestoreData
           };
-
-          console.log(
-            '✅ USER FIRESTORE:',
-            finalUser
-          );
 
           this.userSubject.next(
             finalUser
@@ -102,14 +99,21 @@ export class AuthService {
           );
 
           this.userSubject.next({
-            uid: firebaseUser.uid,
-            email: firebaseUser.email
+
+            uid:
+              firebaseUser.uid,
+
+            email:
+              firebaseUser.email
           });
         }
       });
   }
 
-  // ✅ LOGIN
+  // =========================================
+  // LOGIN
+  // =========================================
+
   login(
     email: string,
     password: string
@@ -122,7 +126,10 @@ export class AuthService {
     );
   }
 
-  // ✅ REGISTER
+  // =========================================
+  // REGISTER
+  // =========================================
+
   async register(
     email: string,
     password: string,
@@ -140,13 +147,23 @@ export class AuthService {
       credential.user.uid;
 
     await setDoc(
-      doc(this.firestore, `users/${uid}`),
+      doc(
+        this.firestore,
+        `users/${uid}`
+      ),
       {
+
         email,
+
         visitedPlaces: [],
+
         comments: [],
+
         favorites: [],
-        createdAt: serverTimestamp(),
+
+        createdAt:
+          serverTimestamp(),
+
         ...extraData
       },
       {
@@ -157,13 +174,35 @@ export class AuthService {
     return credential;
   }
 
-  // ✅ LOGOUT
-  logout() {
+  // =========================================
+  // RESET PASSWORD
+  // =========================================
 
-    return signOut(this.auth);
+  resetPassword(
+    email: string
+  ) {
+
+    return sendPasswordResetEmail(
+      this.auth,
+      email
+    );
   }
 
-  // ✅ USER ACTUAL
+  // =========================================
+  // LOGOUT
+  // =========================================
+
+  logout() {
+
+    return signOut(
+      this.auth
+    );
+  }
+
+  // =========================================
+  // CURRENT USER
+  // =========================================
+
   getCurrentUser() {
 
     return this.userSubject.value;

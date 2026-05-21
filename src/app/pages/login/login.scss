@@ -117,3 +117,33 @@ button:hover {
     text-decoration: underline;
   }
 }
+
+.error {
+  color: #fecaca;
+  font-size: 13px;
+}
+
+.success {
+  color: #bbf7d0;
+  font-size: 13px;
+}
+
+.forgot-password {
+
+  margin-top: 15px;
+
+  font-size: 13px;
+
+  color: #86efac;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.forgot-password:hover {
+
+  text-decoration: underline;
+
+  color: white;
+}

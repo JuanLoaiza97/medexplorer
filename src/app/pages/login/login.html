@@ -2,47 +2,101 @@
 
   <div class="login-card">
 
-    <img src="assets/logo_letra.png" class="logo">
+    <img
+      src="assets/logo_letra.png"
+      class="logo">
 
-    <h2>Bienvenido a MedExplorer</h2>
-    <p>Inicia sesión para explorar Medellín</p>
+    <h2>
+      Bienvenido a MedExplorer
+    </h2>
 
-    <p class="error" *ngIf="error">{{ error }}</p>
+    <p>
+      Inicia sesión para explorar Medellín
+    </p>
 
-    <form (ngSubmit)="login()">
+    <p
+      class="error"
+      *ngIf="error">
+
+      {{ error }}
+
+    </p>
+
+    <p
+      class="success"
+      *ngIf="success">
+
+      {{ success }}
+
+    </p>
+
+    <form
+      (ngSubmit)="login()">
 
       <div class="input-group">
+
         <label>Email</label>
+
         <input
           type="email"
           [(ngModel)]="email"
           name="email"
           required
         />
+
       </div>
 
       <div class="input-group">
+
         <label>Contraseña</label>
+
         <input
           type="password"
           [(ngModel)]="password"
           name="password"
           required
         />
+
       </div>
 
-      <button type="submit" [disabled]="loading">
+      <button
+        type="submit"
+        [disabled]="loading">
 
-        <span *ngIf="!loading">Iniciar sesión</span>
-        <span *ngIf="loading">Ingresando...</span>
+        <span *ngIf="!loading">
+          Iniciar sesión
+        </span>
+
+        <span *ngIf="loading">
+          Ingresando...
+        </span>
 
       </button>
 
     </form>
 
+    <!-- RECOVER PASSWORD -->
+
+    <div
+      class="forgot-password"
+      (click)="recoverPassword()">
+
+      {{
+        resetLoading
+          ? 'Enviando correo...'
+          : '¿Olvidaste tu contraseña?'
+      }}
+
+    </div>
+
     <span class="extra">
+
       ¿No tienes cuenta?
-      <b routerLink="/register">Regístrate</b>
+
+      <b routerLink="/register">
+        Regístrate
+      </b>
+
     </span>
 
   </div>
